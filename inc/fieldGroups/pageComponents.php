@@ -102,6 +102,9 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\ListingFeatNews\getACFLayout(),
                     Components\ListingFeatProjects\getACFLayout(),
                     Components\ListingNews\getACFLayout(),
+                    Components\ListingPastRoundtables\getACFLayout(),
+                    Components\ListingFutureRoundtables\getACFLayout(),
+                    Components\ListingOngoingRoundtables\getACFLayout(),
                     Components\ListingProjects\getACFLayout(),
                     // Components\ListTextLink\getACFLayout(),
                     // Components\ListingArtists\getACFLayout(),
@@ -135,6 +138,11 @@ add_action('Flynt/afterRegisterComponents', function () {
                     'param' => 'post_type',
                     'operator' => '!=',
                     'value' => 'resource'
+                ],
+                [
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'roundtable'
                 ],
                 [
                     'param' => 'post_type',

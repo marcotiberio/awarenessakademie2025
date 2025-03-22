@@ -913,8 +913,8 @@ flynt-component {
 }
 
 .boxed {
-  @apply px-sm;
-  @apply py-sm;
+  @apply px-xxs;
+  @apply py-xxs;
   @apply sm:px-sm;
   @apply sm:py-xl;
   @apply w-full;
