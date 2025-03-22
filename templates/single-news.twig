@@ -17,7 +17,7 @@
         <div class="w-full sm:w-1/3 flex flex-col gap-xs">
           {% for item in post.socialmediaRepeater %}
             {% if item.socialmediaLink %}
-              <a class="button button--white w-full p-sm flex flex-row items-center justify-between !normal-case" href="{{ item.socialmediaLink }}" target="_blank" rel="noreferrer noopener">
+              <a class="button button--link w-full p-sm flex flex-row items-center justify-between !normal-case" href="{{ item.socialmediaLink }}" target="_blank" rel="noreferrer noopener">
                 <div class="">{{ item.socialmediaTitle }}</div>
               </a>
             {% endif %}

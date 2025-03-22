@@ -105,6 +105,9 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\ListingPastRoundtables\getACFLayout(),
                     Components\ListingFutureRoundtables\getACFLayout(),
                     Components\ListingOngoingRoundtables\getACFLayout(),
+                    Components\ListingPastWorkshops\getACFLayout(),
+                    Components\ListingFutureWorkshops\getACFLayout(),
+                    Components\ListingOngoingWorkshops\getACFLayout(),
                     Components\ListingProjects\getACFLayout(),
                     // Components\ListTextLink\getACFLayout(),
                     // Components\ListingArtists\getACFLayout(),
@@ -132,7 +135,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 [
                     'param' => 'post_type',
                     'operator' => '!=',
-                    'value' => 'offer'
+                    'value' => 'workshop'
                 ],
                 [
                     'param' => 'post_type',

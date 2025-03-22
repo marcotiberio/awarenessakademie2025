@@ -55,6 +55,18 @@ function getACFLayout()
                 'type' => 'text',
             ],
             [
+                'label' => __('Image', 'flynt'),
+                'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
+                'name' => 'imageDivider',
+                'type' => 'image',
+                'preview_size' => 'medium',
+                'required' => 0,
+                'mime_types' => 'jpg,jpeg,png,svg',
+                'wrapper' =>  [
+                    'width' => 50,
+                ],
+            ],
+            [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',
@@ -88,6 +100,16 @@ Options::addTranslatable('ListingOngoingRoundtables', [
         'name' => 'labels',
         'type' => 'group',
         'sub_fields' => [
+            [
+                'label' => __('Title', 'flynt'),
+                'name' => 'blockTitle',
+                'type' => 'text',
+                'default_value' => __('Laufend', 'flynt'),
+                'required' => 1,
+                'wrapper' => [
+                    'width' => 100
+                ],
+            ],
             [
                 'label' => __('Read More', 'flynt'),
                 'name' => 'readMore',

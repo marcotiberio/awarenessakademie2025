@@ -59,7 +59,7 @@ function registerWorkshopPostType()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('offer', $args);
+    register_post_type('workshop', $args);
 }
 
 add_action('init', '\\Flynt\\CustomPostTypes\\registerWorkshopPostType');

@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\ListingFutureRoundtables;
+namespace Flynt\Components\ListingPastWorkshops;
 
 use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'roundtable';
+const POST_TYPE = 'workshop';
 
-add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($data) {
+add_filter('Flynt/addComponentData?name=ListingPastWorkshops', function ($data) {
     $postType = POST_TYPE;
 
     $today = date('Ymd');
@@ -22,9 +22,15 @@ add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($da
         'orderby' => 'meta_value',
         'order' => 'DESC',
         'meta_query' => array(
+            'relation'    => 'AND',
+            array(
+                'key' => 'start_date',
+                'compare' => '<',
+                'value' => $today,
+            ),
             array(
                 'key' => 'end_date',
-                'compare' => '>=',
+                'compare' => '<',
                 'value' => $today,
             ),
         ),
@@ -38,8 +44,8 @@ add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($da
 function getACFLayout()
 {
     return [
-        'name' => 'ListingFutureRoundtables',
-        'label' => __('Listing: Future Roundtablests', 'flynt'),
+        'name' => 'ListingPastWorkshops',
+        'label' => __('Listing: Past Workshops', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -87,7 +93,7 @@ function getACFLayout()
     ];
 }
 
-Options::addTranslatable('ListingFutureRoundtables', [
+Options::addTranslatable('ListingPastWorkshops', [
     [
         'label' => __('Labels', 'flynt'),
         'name' => 'labelsTab',
@@ -104,7 +110,7 @@ Options::addTranslatable('ListingFutureRoundtables', [
                 'label' => __('Title', 'flynt'),
                 'name' => 'blockTitle',
                 'type' => 'text',
-                'default_value' => __('Kommende', 'flynt'),
+                'default_value' => __('Vergangene', 'flynt'),
                 'required' => 1,
                 'wrapper' => [
                     'width' => 100

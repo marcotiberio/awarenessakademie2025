@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\ListingFutureRoundtables;
+namespace Flynt\Components\ListingFutureWorkshops;
 
 use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'roundtable';
+const POST_TYPE = 'workshop';
 
-add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($data) {
+add_filter('Flynt/addComponentData?name=ListingFutureWorkshops', function ($data) {
     $postType = POST_TYPE;
 
     $today = date('Ymd');
@@ -38,8 +38,8 @@ add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($da
 function getACFLayout()
 {
     return [
-        'name' => 'ListingFutureRoundtables',
-        'label' => __('Listing: Future Roundtablests', 'flynt'),
+        'name' => 'ListingFutureWorkshops',
+        'label' => __('Listing: Future Workshop', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -87,7 +87,7 @@ function getACFLayout()
     ];
 }
 
-Options::addTranslatable('ListingFutureRoundtables', [
+Options::addTranslatable('ListingFutureWorkshops', [
     [
         'label' => __('Labels', 'flynt'),
         'name' => 'labelsTab',

@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\ListingFutureRoundtables;
+namespace Flynt\Components\ListingOngoingWorkshops;
 
 use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'roundtable';
+const POST_TYPE = 'workshop';
 
-add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($data) {
+add_filter('Flynt/addComponentData?name=ListingOngoingWorkshops', function ($data) {
     $postType = POST_TYPE;
 
     $today = date('Ymd');
@@ -38,8 +38,8 @@ add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($da
 function getACFLayout()
 {
     return [
-        'name' => 'ListingFutureRoundtables',
-        'label' => __('Listing: Future Roundtablests', 'flynt'),
+        'name' => 'ListingOngoingWorkshops',
+        'label' => __('Listing: Ongoing Workshops', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -87,7 +87,7 @@ function getACFLayout()
     ];
 }
 
-Options::addTranslatable('ListingFutureRoundtables', [
+Options::addTranslatable('ListingOngoingWorkshops', [
     [
         'label' => __('Labels', 'flynt'),
         'name' => 'labelsTab',
@@ -104,7 +104,7 @@ Options::addTranslatable('ListingFutureRoundtables', [
                 'label' => __('Title', 'flynt'),
                 'name' => 'blockTitle',
                 'type' => 'text',
-                'default_value' => __('Kommende', 'flynt'),
+                'default_value' => __('Laufend', 'flynt'),
                 'required' => 1,
                 'wrapper' => [
                     'width' => 100

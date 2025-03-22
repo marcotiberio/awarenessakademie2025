@@ -19,7 +19,7 @@
         {% if buttonLinkLeft %}
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
             <a 
-              class="button button--white" 
+              class="button button--link" 
               href="{{ buttonLinkLeft.url }}" 
               {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
               {{ buttonLinkLeft.title }}
@@ -36,7 +36,7 @@
         {% if buttonLinkRight %}
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
             <a 
-              class="button button--white" 
+              class="button button--link" 
               href="{{ buttonLinkRight.url }}" 
               {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
               {{ buttonLinkRight.title }}
