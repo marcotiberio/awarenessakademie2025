@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\ListingProjects;
+namespace Flynt\Components\ListingResources;
 
 use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'projekte';
+const POST_TYPE = 'post';
 
-add_filter('Flynt/addComponentData?name=ListingProjects', function ($data) {
+add_filter('Flynt/addComponentData?name=ListingResources', function ($data) {
     $postType = POST_TYPE;
     $data['taxonomies'] = $data['taxonomies'] ?? [];
 
@@ -30,8 +30,8 @@ add_filter('Flynt/addComponentData?name=ListingProjects', function ($data) {
 function getACFLayout()
 {
     return [
-        'name' => 'ListingProjects',
-        'label' => 'Listing: Projects',
+        'name' => 'ListingResources',
+        'label' => 'Listing: Resources',
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),

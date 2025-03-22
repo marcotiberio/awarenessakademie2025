@@ -109,6 +109,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\ListingFutureWorkshops\getACFLayout(),
                     Components\ListingOngoingWorkshops\getACFLayout(),
                     Components\ListingProjects\getACFLayout(),
+                    Components\ListingResources\getACFLayout(),
                     // Components\ListTextLink\getACFLayout(),
                     // Components\ListingArtists\getACFLayout(),
                     // Components\ListingPastEvents\getACFLayout(),

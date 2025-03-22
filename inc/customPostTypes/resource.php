@@ -8,13 +8,13 @@
 
 namespace Flynt\CustomPostTypes;
 
-function registerResourcePostType()
+function registerProjectPostType()
 {
     $labels = [
-        'name'                  => _x('Resources', 'Post Type General Name', 'flynt'),
-        'singular_name'         => _x('Resource', 'Post Type Singular Name', 'flynt'),
-        'menu_name'             => __('Resources', 'flynt'),
-        'name_admin_bar'        => __('Resources', 'flynt'),
+        'name'                  => _x('Projects', 'Post Type General Name', 'flynt'),
+        'singular_name'         => _x('Project', 'Post Type Singular Name', 'flynt'),
+        'menu_name'             => __('Projects', 'flynt'),
+        'name_admin_bar'        => __('Projects', 'flynt'),
         'archives'              => __('Item Archives', 'flynt'),
         'attributes'            => __('Item Attributes', 'flynt'),
         'parent_item_colon'     => __('Parent Item:', 'flynt'),
@@ -40,8 +40,8 @@ function registerResourcePostType()
         'filter_items_list'     => __('Filter items list', 'flynt'),
     ];
     $args = [
-        'label'                 => __('Resource', 'flynt'),
-        'description'           => __('Resource Description', 'flynt'),
+        'label'                 => __('Project', 'flynt'),
+        'description'           => __('Project Description', 'flynt'),
         'labels'                => $labels,
         'supports'              => ['title', 'thumbnail'],
         'taxonomies'            => ['category', 'post_tag'],
@@ -59,7 +59,7 @@ function registerResourcePostType()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('resource', $args);
+    register_post_type('projekte', $args);
 }
 
-add_action('init', '\\Flynt\\CustomPostTypes\\registerResourcePostType');
+add_action('init', '\\Flynt\\CustomPostTypes\\registerProjectPostType');
