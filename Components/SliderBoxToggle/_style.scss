@@ -1,0 +1,108 @@
+flynt-component[name='SliderBoxToggle'] {
+  .slider {
+    max-width: 100%;
+    position: relative;
+
+    .swiper-wrapper {
+      box-sizing: inherit;
+    }
+
+    .swiper-slide {
+      display: flex;
+      height: 390px;
+
+      @media (max-width: $breakpoint-tablet) {
+        height: auto;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        height: auto;
+        width: 80%;
+      }
+    }
+    
+    &-button {
+      align-items: center;
+      color: var(--white);
+      cursor: pointer;
+      height: 100%;
+      inset-block-start: 50%;
+      justify-content: center;
+      position: absolute;
+      transform: translateY(calc(-50%));
+      width: 40px;
+      z-index: 10;
+      @apply hidden;
+      @apply lg:flex;
+
+      &::before {
+        background-color: transparent;
+        border-radius: 0;
+        content: '';
+        height: 100%;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        position: absolute;
+        transition: opacity 0.2s ease;
+        width: 100%;
+        will-change: opacity;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      &--prev {
+        inset-inline-start: 15px;
+
+        &::after {
+          border-block-start: 2px solid currentColor;
+          border-inline-start: 2px solid currentColor;
+          content: '';
+          height: 15px;
+          margin-inline-start: 5px;
+          transform: rotate(-45deg);
+          width: 15px;
+        }
+      }
+
+      &--next {
+        inset-inline-end: 15px;
+
+        &::after {
+          border-block-start: 2px solid currentColor;
+          border-inline-end: 2px solid currentColor;
+          content: '';
+          height: 15px;
+          margin-inline-end: 5px;
+          transform: rotate(45deg);
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  // .swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+  //   border-radius: 0;
+  //   bottom: -20px;
+  //   height: 20px;
+  //   left: var(--swiper-scrollbar-sides-offset,1%);
+  //   position: absolute;
+  //   top: var(--swiper-scrollbar-top,auto);
+  //   width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset,1%));
+  //   z-index: 50;
+  // }
+
+  // .swiper-scrollbar-drag {
+  //   border-radius: 0;
+  // }
+
+  .active {
+    @apply opacity-100;
+    @apply underline;
+    @apply decoration-1;
+    @apply underline-offset-4;
+    @apply cursor-default;
+  }
+}

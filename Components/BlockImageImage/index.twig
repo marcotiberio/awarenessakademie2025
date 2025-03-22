@@ -1,0 +1,28 @@
+<flynt-component load:on="visible" name="BlockImageImage" class="">
+  <div class="wrapper boxed flex flex-col lg:flex-row align-top justify-between gap-sm">
+    <div class="content-left lg:w-1/2">
+      {% if image1 %}
+          <img class="lazyload h-full w-full object-cover"
+            src="{{ image1.src | resize(32) }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', image1.id)}}"
+            data-sizes="auto"
+            alt="{{ image1.alt|e }}">
+        {% endif %}
+        {% if image1.caption %}
+          <figcaption>{{ image1.caption|e }}</figcaption>
+        {% endif %}
+    </div>
+    <div class="content-right lg:w-1/2">
+      {% if image2 %}
+          <img class="lazyload h-full w-full object-cover"
+            src="{{ image2.src | resize(32) }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', image2.id)}}"
+            data-sizes="auto"
+            alt="{{ image2.alt|e }}">
+        {% endif %}
+        {% if image2.caption %}
+          <figcaption>{{ image2.caption|e }}</figcaption>
+        {% endif %}
+    </div>
+  </div>
+</div>

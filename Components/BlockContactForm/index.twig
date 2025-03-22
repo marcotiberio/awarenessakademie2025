@@ -1,0 +1,13 @@
+<flynt-component load:on="visible" name="BlockContactForm" class="">
+  <div class="boxed">
+    <div 
+      class="h-full flex gap-sm lg:gap-sm align-start justify-start md:justify-between" 
+      {{ contactFormAlignment ? 'data-image-alignment="' ~ contactFormAlignment ~ '"' }} {{ contactFormAlignment ? 'data-form-position="' ~ contactFormAlignment ~ '"' }}>
+      <div class="w-full lg:w-1/2 h-full hidden lg:block"></div>
+      <div class="w-full lg:w-1/2 h-full">
+        <div class="font-h2 mb-md">{{ blockTitle }}</div>
+        <div>{{ contentHtml }}</div>
+      </div>
+    </div>
+  </div>
+</flynt-component>

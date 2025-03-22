@@ -1,0 +1,21 @@
+<flynt-component 
+  load:on="visible" 
+  name="BlockEmbed"
+  style="background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}transparent{% endif %}; ">
+  <div 
+    class="w-full max-w-screen-max mx-auto px-sm py-md lg:px-lg lg:py-xl">
+    <div 
+      class="
+        wysiwyg flex flex-col
+        {% if textPosition == 'right' %} justify-end w-full sm:w-1/2 ml-auto{% endif %}
+        {% if textPosition == 'left' %} justify-start w-full sm:w-1/2 mr-auto{% endif %}
+        {% if textPosition == 'center_narrow' %} justify-center w-full max-w-[1000px] mx-auto{% endif %}
+        {% if textPosition == 'center_full' %} justify-center w-full mx-auto{% endif %}
+      ">
+      {{ contentHtml|e('wp_kses_post') }}
+      {% if formHtml %}
+        <div class="mt-lg">{{ formHtml }}</div>
+      {% endif %}
+    </div>
+  </div>
+</flynt-component>

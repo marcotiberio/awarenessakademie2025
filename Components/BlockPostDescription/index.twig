@@ -1,0 +1,31 @@
+<flynt-component 
+  load:on="visible" 
+  name="BlockPostDescription" 
+  class="" 
+  style="background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}transparent{% endif %}; ">
+  <div class="wrapper boxed" style="color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--black){% endif %};">
+     {% if blockTitle %}
+      <div class="max-w-screen-lg mx-auto font-heroSubtitle text-center mb-md sm:mb-lg">
+        {{ blockTitle }}
+      </div>
+    {% endif %}
+    <div class="wrapper boxed !p-0 flex flex-col lg:flex-row align-top justify-between gap-md sm:gap-xl">
+      <div class="content-left lg:w-1/2">
+        {% if contentHtmlLeft %}
+          {{ contentHtmlLeft|e('wp_kses_post') }}
+        {% endif %}
+        {% if embedHtmlLeft %}
+          {{ embedHtmlLeft }}
+        {% endif %}
+      </div>
+      <div class="content-right lg:w-1/2">
+        {% if contentHtmlRight %}
+          {{ contentHtmlRight|e('wp_kses_post') }}
+        {% endif %}
+        {% if embedHtmlRight %}
+          {{ embedHtmlRight }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

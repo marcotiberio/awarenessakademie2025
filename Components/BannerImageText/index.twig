@@ -1,0 +1,25 @@
+<flynt-component 
+  load:on="visible" 
+  name="BannerImageText">
+  <div class="h-full w-full p-sm lg:p-lg">
+    {% if contentTitle %}
+    <div 
+      class="w-full h-full {# {% if image %}h-full{% else %}h-[calc(100vh_-_105px)]{% endif %}  #} block" 
+      {{ titlePosition ? 'data-title-position="' ~ titlePosition ~ '"' }} >
+      <div class="w-full pb-sm lg:pb-md">
+        {{ contentTitle|e('wp_kses_post') }}
+      </div>
+    </div>
+    {% endif %}
+    <figure class="figure my-xxs mx-auto">
+      {% if image %}
+        <img class="figure-image lazyload object-contain"
+          src="{{ image.src }}"
+          data-srcset="{{function('wp_get_attachment_image_srcset', image.id)}}"
+          data-sizes="auto"
+          alt="{{ image.alt|e }}">
+      {% endif %}
+    </figure>
+    
+  </div>
+</flynt-component>

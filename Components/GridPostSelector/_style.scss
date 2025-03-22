@@ -1,0 +1,72 @@
+flynt-component[name='GridPostSelector'] {
+  [data-grid-columns='1'] {
+    @apply grid-cols-1;
+    @apply md:grid-cols-1;
+
+    figure {
+      img {
+        @apply aspect-video;
+      }
+    }
+  }
+
+  [data-grid-columns='2'] {
+    @apply grid-cols-1;
+    @apply md:grid-cols-2;
+
+    figure {
+      img {
+        @apply aspect-video;
+      }
+    }
+  }
+
+  [data-grid-columns='3'] {
+    @apply grid-cols-1;
+    @apply md:grid-cols-3;
+
+    figure {
+      img {
+        @apply aspect-4/3;
+      }
+    }
+  }
+
+  figure {
+    position: relative;
+
+    &::before {
+      border-bottom: 40px solid transparent;
+      border-left: 40px solid transparent;
+      border-right: 40px solid var(--grey);
+      border-top: 40px solid transparent;
+      bottom: -40px;
+      content: '';
+      height: 0;
+      left: calc(100% - 79px);
+      position: absolute;
+      width: 0;
+      z-index: 1000;
+    }
+  }
+
+  // .post-link {
+  //   &:hover {
+  //     .button--outline {
+  //       background-image: url('data:image/svg+xml,%3Csvg width="186" height="48" viewBox="0 0 186 48" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0.5 0.5H177.453L185.5 9.19584V47.5H0.5V0.5Z" fill="black" stroke="black"/%3E%3C/svg%3E');
+  //     }
+  //   }
+  // }
+
+  // .figure {
+  //   clip-path: polygon(0 0, 0 100%, 90% 100%, 100% 85%, 100% 0);
+  // }
+
+  // .content {
+  //   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 20%, 90% 0);
+
+  //   @media (min-width: $breakpoint-tablet) {
+  //     clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 27.5%, 90% 0);
+  //   }
+  // }
+}

@@ -1,0 +1,145 @@
+<flynt-component
+  load:on="idle" name="SliderBoxToggle"
+  class="pb-0 lg:pb-xl overflow-hidden bg-blue"
+>
+  <script type="application/json">{{ jsonData|json_encode }}</script>
+  <div class="wrapper max-w-screen-xl mx-auto boxed tab-wrapper" x-data="{ activeTab:  0 }">
+    {% if headlineTitle %}
+      <div class="max-w-screen-lg flex justify-start items-center text-center uppercase font-bodyMenu">{{ headlineTitle }}</div>
+    {% endif %}
+    {% if introToggleHtml %}
+      <div class="flex flex-col lg:flex-row gap-sm">
+        <div class="">
+          <div class="font-h1">{{ introToggleHtml|e('wp_kses_post') }}</div>
+        </div>
+        <div class="lg:mt-[78px]">
+          <div class="flex flex-col">
+            <label
+              @click="activeTab = 0"
+              class="tab-control font-h1 opacity-5 cursor-pointer"
+              :class="{ 'active': activeTab === 0 }"
+            >START-UPS</label>
+            <label
+              @click="activeTab = 1"
+              class="tab-control font-h1 opacity-5 cursor-pointer"
+              :class="{ 'active': activeTab === 1 }"
+            >INVESTOREN</label>
+            <label
+              @click="activeTab = 2"
+              class="tab-control font-h1 opacity-5 cursor-pointer"
+              :class="{ 'active': activeTab === 2 }"
+            >ÖKOSYSTEM</label>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="tab-panel" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
+      <div data-ref="slider" id="slider-1" class="slider swiper-container mt-lg">
+        <div class="swiper-wrapper">
+          {% for box in boxes %}
+            <div 
+              class="slider-item swiper-slide relative w-full md:h-[390px] p-xs md:p-sm lg:mr-md flex flex-col sm:flex-row gap-xs justify-start overflow-hidden" 
+              style="
+                background-color: var(--darkblue); 
+                color:var(--beige);"
+              >
+              <div class="w-[75px] h-[75px]">
+                {% if box.logo %}
+                  <div class="flex flex-row items-start justify-start mb-lg">
+                    <img class="logo lazyload w-auto max-w-[75px] h-auto object-contain"
+                    src="{{ box.logo.src | resize(32) }}"
+                    data-srcset="{{function('wp_get_attachment_image_srcset', box.logo.id)}}"
+                    data-sizes="auto">
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col justify-between gap-md sm:gap-xxl">
+                {% if box.title %}
+                  <div class="font-h3 !font-serif">{{ box.title }}</div>
+                {% endif %}
+                {% if box.contentText %}
+                  <div class="font-bodySmall !font-sans">{{ box.contentText }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {# <div data-ref="scrollbar" class="swiper-scrollbar"></div> #}
+        <button type="button" data-ref="prev" class="slider-button slider-button--prev"></button>
+        <button type="button" data-ref="next" class="slider-button slider-button--next"></button>
+      </div>
+    </div>
+    <div class="tab-panel" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
+      <div data-ref="slider2" id="slider-2" class="slider swiper-container mt-lg">
+        <div class="swiper-wrapper">
+          {% for box in boxesInvestoren %}
+            <div 
+              class="slider-item swiper-slide relative w-full md:h-[390px] p-xs md:p-sm lg:mr-md flex flex-col sm:flex-row gap-xs justify-start overflow-hidden" 
+              style="
+                background-color: var(--darkblue); 
+                color:var(--beige);"
+              >
+              <div class="w-[75px] h-[75px]">
+                {% if box.logo %}
+                  <div class="flex flex-row items-start justify-start mb-lg">
+                    <img class="logo lazyload w-auto max-w-[75px] h-auto object-contain"
+                    src="{{ box.logo.src | resize(32) }}"
+                    data-srcset="{{function('wp_get_attachment_image_srcset', box.logo.id)}}"
+                    data-sizes="auto">
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col justify-between gap-md sm:gap-xxl">
+                {% if box.title %}
+                  <div class="font-h3 !font-serif">{{ box.title }}</div>
+                {% endif %}
+                {% if box.contentText %}
+                  <div class="font-bodySmall !font-sans">{{ box.contentText }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {# <div data-ref="scrollbar2" class="swiper-scrollbar"></div> #}
+        <button type="button" data-ref="prev2" class="slider-button slider-button--prev"></button>
+        <button type="button" data-ref="next2" class="slider-button slider-button--next"></button>
+      </div>
+    </div>
+    <div class="tab-panel" :class="{ 'active': activeTab === 2 }" x-show.transition.in.opacity.duration.600="activeTab === 2">
+      <div data-ref="slider3" id="slider-3" class="slider swiper-container mt-lg">
+        <div class="swiper-wrapper">
+          {% for box in boxesBerater %}
+            <div 
+              class="slider-item swiper-slide relative w-full md:h-[390px] p-xs md:p-sm lg:mr-md flex flex-col sm:flex-row gap-xs justify-start overflow-hidden" 
+              style="
+                background-color: var(--darkblue); 
+                color:var(--beige);"
+              >
+              <div class="w-[75px] h-[75px]">
+                {% if box.logo %}
+                  <div class="flex flex-row items-start justify-start mb-lg">
+                    <img class="logo lazyload w-auto max-w-[75px] h-auto object-contain"
+                    src="{{ box.logo.src | resize(32) }}"
+                    data-srcset="{{function('wp_get_attachment_image_srcset', box.logo.id)}}"
+                    data-sizes="auto">
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col justify-between gap-md sm:gap-xxl">
+                {% if box.title %}
+                  <div class="font-h3 !font-serif">{{ box.title }}</div>
+                {% endif %}
+                {% if box.contentText %}
+                  <div class="font-bodySmall !font-sans">{{ box.contentText }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {# <div data-ref="scrollbar3" class="swiper-scrollbar"></div> #}
+        <button type="button" data-ref="prev3" class="slider-button slider-button--prev"></button>
+        <button type="button" data-ref="next3" class="slider-button slider-button--next"></button>
+      </div>
+    </div>
+  </div>
+</flynt-component>

@@ -1,0 +1,9 @@
+flynt-component[name='NavigationFooter'] {
+  .wysiwyg {
+    img {
+      @apply max-w-[150px];
+      @apply md:max-w-[300px];
+      width: inherit;
+    }
+  }
+}

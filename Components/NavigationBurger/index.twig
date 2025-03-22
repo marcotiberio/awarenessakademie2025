@@ -1,0 +1,16 @@
+<flynt-component load:on="idle" client:media="(max-width: 1023px)" name="NavigationBurger" class="bg-white fixed top-0 left-0 w-screen z-50 flex flex-row justify-between">
+  <nav aria-label="{{ labels.ariaLabel|e }}" class="h-full w-full z-[3000]">
+    <div class="w-full h-full px-xs flex flex-row justify-between gap-sm align-middle items-center">
+      {% include 'Partials/_logo.twig' with { 'logo': logo, 'site': site } only %}
+      <div class="flex flex-row gap-[10px] align-middle items-center">
+        {% include 'Partials/_cta.twig' with { 'ctaLink': ctaLink } only %}
+        {% if menu %}
+          {% include 'Partials/_hamburger.twig' with { 'labels': labels } only %}
+        {% endif %}
+      </div>
+    </div>
+    {% if menu %}
+      {% include 'Partials/_menu.twig' with { 'items': menu.items } only %}
+    {% endif %}
+  </nav>
+</flynt-component>

@@ -1,0 +1,27 @@
+flynt-component[name='BlockBanner'] {
+  .marquee {
+    overflow: hidden;
+  
+    &--inner {
+      animation: marquee 40s linear infinite;
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+  
+  @keyframes marquee {
+    0% {
+      margin-left: 100%;
+      transform: translateX(0%);
+    }
+    
+    100% {
+      margin-left: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  .button {
+    display: inherit !important;
+  }
+}

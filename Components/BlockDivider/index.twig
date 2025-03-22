@@ -1,0 +1,11 @@
+<flynt-component load:on="idle" name="BlockDivider" class="">
+  {% if image %}
+    <div class="w-full h-[50vh]">
+      <img class="lazyload h-full {{ imageWidth }} object-cover"
+        src="{{ image.src | resize(32) }}"
+        data-srcset="{{function('wp_get_attachment_image_srcset', image.id)}}"
+        data-sizes="auto"
+        alt="{{ image.alt|e }}">
+    </div>
+  {% endif %}
+</flynt-component>

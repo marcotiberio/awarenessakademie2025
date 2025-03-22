@@ -1,0 +1,21 @@
+<flynt-component load:on="visible" name="BlockTextText">
+  <div 
+    class="wrapper max-w-screen-xl mx-auto boxed" 
+    style="background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}var(--white){% endif %}; ">
+    {% if headlineTitle %}
+      <div class="max-w-screen-md flex items-center uppercase font-bodyMenu">{{ headlineTitle }}</div>
+    {% endif %}
+    <div class="h-auto py-sm flex flex-col sm:flex-row align-start justify-start md:justify-between sm:gap-xl" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+      <div class="w-full lg:w-1/2 h-full flex flex-col justify-between">
+        {% if contentHtmlLeft %}
+          <div>{{ contentHtmlLeft|e('wp_kses_post') }}</div>
+        {% endif %}
+      </div>
+      <div class="w-full lg:w-1/2 h-full flex flex-col justify-between">
+        {% if contentHtmlRight %}
+          <div>{{ contentHtmlRight|e('wp_kses_post') }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</flynt-component>

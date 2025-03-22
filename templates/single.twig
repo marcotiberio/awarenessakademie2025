@@ -1,0 +1,40 @@
+{% extends 'templates/_document.twig' %}
+
+{% block content %}
+  <article 
+    class="post" 
+    style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}cc{% else %}transparent{% endif %}; ">
+    <header class="post-header w-full max-w-screen-max mx-auto flex flex-col gap-sm md:gap-md pt-[60px] lg:pt-[260px] lg:min-h-[calc(100vh_-_260px)]">
+      {{ renderComponent('BlockPostHeader', { post: post }) }}
+    </header>
+    <section class="post-main boxed flex flex-col">
+      <div class="post-main flex flex-col-reverse sm:flex-row gap-md">
+        <div class="w-full sm:w-2/3">
+          {% if post.mainText %}
+            {{ post.mainText }}
+          {% endif %}
+        </div>
+        <div class="w-full sm:w-1/3 flex flex-col gap-xs">
+          {% for item in post.socialmediaRepeater %}
+            {% if item.socialmediaLink %}
+              <a class="button button--white w-full p-sm flex flex-row items-center justify-between !normal-case" href="{{ item.socialmediaLink }}" target="_blank" rel="noreferrer noopener">
+                <div class="">{{ item.socialmediaTitle }}</div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% if post.ticketsEmbed %}
+        <div class="w-full h-full" id="tickets">
+          {{ post.ticketsEmbed }}
+        </div>
+      {% endif %}
+      {# {% for component in post.meta('postComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %} #}
+    </section>
+    <section class="post-related">
+      {# {{ renderComponent('RelatedPosts', {'preContentTitle': '<h2>' ~ __('Related News') ~ '</h2>', 'taxonomies': post.categories(), 'options': {'maxPosts': 3}}) }} #}
+    </section>
+  </article>
+{% endblock %}

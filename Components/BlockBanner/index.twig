@@ -1,0 +1,32 @@
+<flynt-component
+  load:on="visible"
+  name="BlockBanner" 
+  class="my-xxs"
+  style="
+    background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}transparent{% endif %};>
+    color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--black){% endif %};">
+  {% if buttonLink %}
+    <div class="w-full h-full flex mx-auto wysiwyg">
+      <div class="w-full max-w-screen-max mx-auto !flex justify-center items-center py-md">
+        <div class="marquee">
+          <h2 class="marquee--inner font-h2 !m-0">
+            <a 
+              class="" 
+              style="color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--black){% endif %};"
+              href="{{ buttonLink.url }}" 
+              {% if buttonLink.target %} target="{{ buttonLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+              <span class="px-sm">{{ buttonLink.title }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</flynt-component>

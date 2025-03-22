@@ -1,0 +1,26 @@
+[data-icon] {
+  @apply block;
+  height: 16px;
+  width: 16px;
+
+  &::after {
+    @apply block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    height: 16px;
+    width: 16px;
+  }
+}
+
+[data-icon='facebook'] {
+  &::after {
+    background-image: url('/wp-content/themes/xellar/assets/icons/facebook.png');
+  }
+}
+
+[data-icon='linkedin'] {
+  &::after {
+    background-image: url('/wp-content/themes/xellar/assets/icons/linkedin.png');
+  }
+}

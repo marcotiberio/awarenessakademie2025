@@ -1,0 +1,7 @@
+flynt-component[name='HeroMultimediaComplex'] {
+  .parallaxed,
+  .figureImage {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+  }
+}

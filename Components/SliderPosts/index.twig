@@ -1,0 +1,67 @@
+<flynt-component
+  name="SliderPosts"
+  class="bg-beige text-textColor overflow-hidden"
+>
+  <script type="application/json">{{ jsonData|json_encode }}</script>
+  <div class="wrapper max-w-screen-xl mx-auto boxed">
+    <div class="max-w-screen-xl w-full mx-auto gap-xs xs:gap-md lg:gap-0">
+      {% if headlineTitle %}
+        <div class="max-w-screen-lg flex justify-start items-center text-center uppercase font-bodyMenu">{{ headlineTitle }}</div>
+      {% endif %}
+      <div data-ref="slider" class="slider relative swiper-container">
+        {# <div class="hidden lg:block button-wrapper h-full bottom-0 left-0 gap-[4px] align-middle z-[51]">
+          <div class="absolute bottom-0 left-0">
+            <div class="flex flex-row gap-xs"> 
+              <button type="button" data-ref="prev" class="slider-button slider-button--prev z-[10] justify-center flex cursor-pointer items-center bg-brandColor hover:bg-hoverColor w-[45px] h-[45px] rounded-full transition duration-200 ease-linear">
+                <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 16L1.80331 8.80331L9 1.60662" stroke="{% if options.colorText %}{{ options.colorText }}{% else %}var(--bgColor){% endif %}" stroke-width="2"/>
+                </svg>
+              </button>
+              <button type="button" data-ref="next" class="slider-button slider-button--next z-[10] justify-center flex cursor-pointer items-center bg-brandColor hover:bg-hoverColor w-[45px] h-[45px] rounded-full transition duration-200 ease-linear">
+                <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L8.19669 8.19669L1 15.3934" stroke="{% if options.colorText %}{{ options.colorText }}{% else %}var(--bgColor){% endif %}" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div> #}
+        <div class="swiper-wrapper box box-inherit z-[49] py-sm">
+          {% for post in items %}
+            <li
+              class="post w-full overflow-hidden relative item swiper-slide">
+              <a class="flex flex-col h-full no-underline" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+                <div class="flex flex-col grow" aria-label="{{ post.title }}">
+                  {% if post.thumbnail %}
+                    <div class="relative">
+                      <figure class="figure">
+                        <img class="lazyload object-cover w-full h-auto transition duration-200 ease-linear"
+                          src="{{  post.thumbnail.src | resize(32) }}"
+                          data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                          data-sizes="auto"
+                          data-src="{{ post.thumbnail.src }}"
+                          alt="{{ post.thumbnail.alt|e }}">
+                      </figure>
+                    </div>
+                  {% endif %}
+                  <div class="bg-white p-sm flex flex-col gap-xl">
+                    <div>
+                      <div class="font-smallTitle mb-[5px]">{{ post.title }}</div>
+                      <div class="font-bodySmall mb-[5px]">{{ post.intro|truncate(10)|striptags }}</div>
+                    </div>
+                    <div class="flex justify-between font-bodySmall">
+                      <div class="mb-[5px]">{{ post.category }}</div>
+                      <div>→</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </div>
+        {# {% if viewAllLink %}
+          <a href="{{ viewAllLink.url }}" class="body font-bold font-condensed">{{ viewAllLink.title }}</a>
+        {% endif %} #}
+      </div>
+    </div>
+  </div>
+</flynt-component>

@@ -1,0 +1,27 @@
+<flynt-component load:on="visible" name="BlockArtistHeader">
+  <div class="wrapper max-w-screen-xl mx-auto boxed flex flex-col gap-sm">
+    <div class="w-full h-full grow flex flex-col justify-start gap-sm">
+      <div class="w-full flex flex-col justify-between align-middle font-h1">
+        <div class="flex justify-end">{{ post.title }}</div>
+      </div>
+      {# <div class="mb-lg lg:mb-xl">{{ post.intro|e('wp_kses_post') }}</div> #}
+      {# <div class="">{{ post.mainText|e('wp_kses_post') }}</div> #}
+    </div>
+    {% if post.thumbnail %}
+      <div class="featuredImage w-full h-full">
+        <div class="w-full flex justify-center">
+          <button 
+            class="button !p-0 translate-y-sm z-10 hover:!bg-white hover:!text-black"
+            style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}{% else %}transparent{% endif %}; ">
+            <a class="px-sm py-xs" href="#contact">Contact</a>
+          </button>
+        </div>
+        <img 
+          class="lazyload object-cover aspect-video md:aspect-16/6 rounded grayscale mix-blend-multiply"
+          src="{{ post.thumbnail.src }}"
+          data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+          data-sizes="auto">
+      </div>
+    {% endif %}
+  </div>
+</flynt-component>

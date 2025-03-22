@@ -1,0 +1,123 @@
+<flynt-component
+  load:on="load" name="BlockTicker"
+  class="overflow-hidden block my-xxs"
+  style="
+    color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--white){% endif %};
+    background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}var(--orange){% endif %};">
+  <script type="application/json">{{ jsonData|json_encode }}</script>
+  <div class="w-screen mx-auto py-md">
+    <div data-ref="slider" class="slider relative max-w-full swiper-container" id="sliderTicker">
+      <div class="swiper-wrapper box box-inherit items-center" style="transition-timing-function:linear!important;">
+        {% set repeaterLinksCount = repeaterLinks|length %}
+        {% if repeaterLinksCount < 10 %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+        {% else %}
+          {% for item in repeaterLinks %}
+            <a class="font-h2 !mb-0 text-textColor item swiper-slide !w-fit !flex flex-row items-center gap-sm no-underline" href="{{ item.linkLink.url }}" {% if item.linkLink.target %} target="{{ item.linkLink.target }}" rel="noreferrer noopener"{% endif %}>
+              <span>{{ item.linkLink.title }}</span>
+            </a>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</flynt-component>

@@ -1,0 +1,10 @@
+flynt-component[name='SliderPosts'] {
+  .slider {
+    position: relative;
+    width: 100%;
+
+    .swiper-wrapper {
+      box-sizing: inherit;
+    }
+  }
+}

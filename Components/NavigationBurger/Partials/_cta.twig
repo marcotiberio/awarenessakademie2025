@@ -1,0 +1,5 @@
+{% if ctaLink %}
+  <a class="button button--acqua lg:min-w-[220px]" href="{{ ctaLink.url }}" {% if ctaLink.target %} target="{{ ctaLink.target }}" rel="noreferrer noopener"{% endif %}>
+    {{ ctaLink.title|e }}
+  </a>
+{% endif %}

@@ -1,0 +1,86 @@
+.menu {
+  @include reset-list;
+  backface-visibility: hidden;
+  display: flex;
+  flex-flow: column;
+  height: auto;
+  inset-block-start: var(--navigation-height);
+  inset-inline-start: 0;
+  justify-content: flex-start;
+  margin-top: 0;
+  min-height: fit-content;
+  overflow-y: scroll;
+  position: fixed;
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.45s;
+  visibility: hidden;
+  width: 100%;
+  will-change: transform;
+  z-index: 49;
+
+  &.menuIsOpen {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .admin-bar & {
+    height: calc(100% - var(--navigation-height) - var(--wp-admin--admin-bar--height));
+    inset-block-start: calc(var(--navigation-height) + var(--wp-admin--admin-bar--height));
+  }
+
+  .item {
+    align-items: center;
+    display: flex;
+    flex-grow: 0;
+    justify-content: flex-start;
+  }
+
+  .link {
+    @include reset-link;
+    display: block;
+    padding: 5px 0;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .current-menu-item {
+    .link {
+      text-decoration: underline;
+    }
+
+    .submenu {
+      .current-menu-item {
+        .link {
+          text-decoration: underline;
+        }
+      }
+      
+      :not(.current-menu-item) {
+        .link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.open-submenu {
+  flex-flow: column;
+}
+
+.submenu {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+
+  .item {
+    border-top: 0;
+
+    .link {
+      padding-bottom: 10px;
+      padding-top: 0;
+    }
+  }
+}

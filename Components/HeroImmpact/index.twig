@@ -1,0 +1,38 @@
+<flynt-component 
+  load:on="visible" 
+  name="HeroImmpact"
+  style="background-color: {% if options.colorBackground %}{{ options.colorBackground }}{% else %}var(--darkblue){% endif %}; ">
+  <div class="wrapper mx-auto boxed max-w-screen-xl">
+    <div class="h-auto flex flex-col align-start md:items-end justify-start md:justify-between gap-xl max-w-screen-xl" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+      <div class="w-full h-full">
+        {% if image %}
+          <img class="lazyload h-full w-full object-cover"
+            src="{{ image.src | resize(32) }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', image.id)}}"
+            data-sizes="auto"
+            alt="{{ image.alt|e }}">
+        {% endif %}
+        {% if image.caption %}
+          <figcaption>{{ image.caption|e }}</figcaption>
+        {% endif %}
+      </div>
+      <div class="w-full h-full flex flex-col justify-start text-beige max-w-screen-xl mx-auto">
+        <div class="w-full lg:w-1/2">
+          {% if contentHtml %}
+            <div>{{ contentHtml|e('wp_kses_post') }}</div>
+          {% endif %}
+          {% if buttonLink %}
+            <div class="w-full mt-md flex">
+              <a 
+                class="button button--outlineBeige" 
+                href="{{ buttonLink.url }}" 
+                {% if buttonLink.target %} target="{{ buttonLink.target }}" rel="noreferrer noopener"{% endif %}>
+                {{ buttonLink.title }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</flynt-component>

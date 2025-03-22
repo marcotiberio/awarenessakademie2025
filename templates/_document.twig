@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="html {{ body_class }} horizontal page-{{ post.slug }}" id="theTop" lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ __('Feed', 'flynt') }}" href="{{ site.rss2 | e('esc_url') }}">
+    {{ function('wp_head') }}
+    <!-- Google tag (gtag.js) -->
+    {# <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7R4D0N0KC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J7R4D0N0KC');
+    </script> #}
+  </head>
+  <body class="">
+    <a href="#mainContent" class="skipLink">
+      {{ __("Skip to main content", "flynt") }}
+    </a>
+    {% block layout %}
+      <div class="pageWrapper relative z-20" style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}{% else %}var(--white){% endif %};">
+        <header class="w-full">
+          {% block header %}
+            <div class="hidden lg:flex justify-center items-center w-full h-[110px] p-xs lg:py-0 fixed top-0 left-0 z-[3000] bg-white">
+              <div class="w-full max-w-screen-max mx-auto flex flex-row justify-between gap-sm">
+                {{ renderComponent('NavigationMain') }}
+              </div>
+            </div>
+            {{ renderComponent('NavigationBurger') }}
+          {% endblock %}
+        </header>
+        <main id="mainContent" class="mainContent mt-[66px] lg:mt-[110px] lg:min-h-[calc(100vh_-_110px)] bg-white" aria-label="{{ __('Content', 'flynt') }}">
+          {% if function('post_password_required') %}
+            {{ function('get_the_password_form') }}
+          {% else %}
+            {% block content %}
+              No <code>{{ '{% block content %}' }}</code> defined for this template.
+            {% endblock %}
+          {% endif %}
+        </main>
+        <footer class="mainFooter">
+          {% block footer %}
+            {{ renderComponent('NavigationFooter') }}
+          {% endblock %}
+        </footer>
+      </div>
+    {% endblock %}
+    <div class="wpFooter">
+      {{ function('wp_footer') }}
+    </div>
+  </body>
+</html>

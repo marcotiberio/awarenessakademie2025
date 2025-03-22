@@ -1,0 +1,127 @@
+flynt-component[name='BlockContactForm'] {
+  [data-form-position='right'] {
+    @apply flex-col;
+    @apply lg:flex-row-reverse;
+  }
+
+  [data-form-position='left'] {
+    @apply flex-col;
+    @apply lg:flex-row;
+  }
+
+  ::placeholder {
+    color: var(--black) !important;
+    font-family: 'FoundersGrotesk', Arial, sans-serif !important;
+    font-size: 1.25rem !important;
+    opacity: 1 !important;
+  }
+
+  .wpforms-container {
+    margin: 0 !important;
+  }
+
+  .wpforms-container .wpforms-field,
+  .wp-core-ui div.wpforms-container .wpforms-field {
+    padding: 0;
+    position: relative;
+  }
+
+  div.wpforms-container-full {
+    input {
+      background-color: transparent !important;
+      border: 1px solid var(--black) !important;
+      border-bottom: 0 !important;
+      border-left: 0 !important;
+      border-radius: 0 !important;
+      border-right: 0 !important;
+      box-shadow: none;
+      color: var(--black) !important;
+      font-family: 'FoundersGrotesk', Arial, sans-serif !important;
+      font-size: 1.25rem !important;
+      line-height: 100%;
+      outline: 0 !important;
+      padding: 0 !important;
+      transition: border 0.15s, box-shadow 0.15s;
+
+      &[type='text'] {
+        &:focus {
+          outline: none !important;
+        }
+      }
+  
+      &[type='email'] {
+        border-bottom: 1px solid var(--black) !important;
+
+        &:focus {
+          outline: none !important;
+        }
+      }
+    }
+
+    button[type='submit'] {
+      background: var(--white) !important;
+      color: var(--black) !important;
+      font-family: 'FoundersGrotesk', Arial, sans-serif !important;
+      font-size: 1.25rem !important;
+      margin-top: 15px;
+      width: 100% !important;
+  
+      &:hover {
+        background: var(--black) !important;
+        color: var(--white) !important;
+      }
+    }
+  }
+
+  .wpforms-field-textarea {
+    border-bottom: 1px solid var(--black) !important;
+    padding: 15px 0 !important;
+  }
+
+  .wpforms-field-checkbox {
+    align-items: center;
+    border-bottom: 1px solid var(--black) !important;
+    display: flex;
+    height: 43px !important;
+    // padding: 15px 0 !important;
+
+    .wpforms-field-label-inline {
+      margin-top: 2px !important;
+    }
+
+    ul {
+      li {
+        align-items: center !important;
+      }
+    }
+  }
+
+  div.wpforms-container-full input[type='checkbox'] {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: -1px !important;
+
+    &:focus {
+      outline: none !important;
+    }
+
+    &::before {
+      border-color: var(--black) !important;
+      border-radius: 0 !important;
+    }
+
+    &::before {
+      border-color: var(--black) !important;
+      border-radius: 0 !important;
+    }
+
+    &:checked::before {
+      border-color: var(--black) !important;
+      box-shadow: none !important;
+    }
+
+    &:checked::after {
+      border-color: var(--black) !important;
+    }
+  }
+}

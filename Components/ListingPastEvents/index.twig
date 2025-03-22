@@ -1,0 +1,129 @@
+{% if posts|length > 0 %}
+  <flynt-component 
+    load:on="visible" 
+    name="ListingPastEvents" 
+    class=""
+    style="
+      color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--black){% endif %};
+      background-color: {% if options.pageBackground %}{{ options.pageBackground }}{% else %}transparent{% endif %};">
+    <div class="!p-0">
+      {% if preContentHtml %}
+        <div class="boxed flex flex-row justify-end font-h1 px-sm py-md">
+          {{ preContentHtml }}
+        </div>
+      {% endif %}
+      <div class="flex flex-col">
+        {% for post in posts %}
+          <a 
+            class="w-full" 
+            href="{{ post.link }}" 
+            aria-label="{{ post.title }}"
+            style="
+              color: {% if post.colorText %}{{ post.colorText }}{% else %}var(--black){% endif %};
+              background-color: {% if post.pageBackground %}{{ post.pageBackground }}cc{% else %}transparent{% endif %}; ">
+            <div class="post w-full h-full flex flex-col gap-md sm:gap-none justify-between items-center" >
+              <div class="w-full h-full flex flex-row sm:gap-x-md justify-between items-center">
+                <div class="sm:w-1/4 flex justify-between align-middle">
+                  <div class="font-h1">
+                    {# {% if post.end_date %}<span>{{ post.end_date|date("d") }}<br>{{ post.end_date|date("m") }}<br>{{ post.end_date|date("y") }}</span>{% endif %} #}
+                    {# {{ post.end_date|date("d.m.y")|escape('wp_kses_post') }} #}
+                  </div>
+                </div>
+                {% if post.thumbnail %}
+                  {% if post.shapeMask == '1' %}
+                    <figure class="boxed md:w-[867px] md:h-[695px] figure flex">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply block sm:block" 
+                        style="clip-path: path('M763.252 471.398C779.121 471.34 792 458.416 792 442.527V28.7841C792 12.8953 779.121 0 763.252 0H328.242C312.373 0 299.436 12.8953 299.35 28.7841L298.833 130.45C298.746 146.338 285.81 159.234 269.941 159.263L131.78 159.32C115.911 159.32 103.003 172.215 102.946 188.104L102.629 305.975C102.601 321.864 89.693 334.99 73.8242 335.306L28.7765 336.141C12.9078 336.429 0.0288086 349.554 0.0288086 365.472V445.003C0.0288086 460.891 12.9078 473.844 28.7765 473.902L275.691 474.909C291.56 474.967 304.352 487.92 304.266 503.808L303.605 609.273C303.49 625.162 316.283 638.029 332.18 637.971L628.828 637.165C644.697 637.136 657.374 624.212 657.116 608.295L655.42 500.527C655.161 484.638 667.839 471.714 683.707 471.657L763.281 471.369L763.252 471.398Z');"
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply block sm:hidden" 
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                    </figure>
+                  {% endif %}
+                {% endif %}
+                {% if post.thumbnail %}
+                  {% if post.shapeMask == '2' %}
+                    <figure class="boxed md:w-[843px] md:h-[605px] figure flex">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply hidden sm:block" 
+                        style="clip-path: path('M755.467 471.286C766.809 471.286 776.015 462.082 776.015 450.741V20.5452C776.015 9.20424 766.809 0 755.467 0H82.6981C71.3559 0 62.1505 9.20424 62.1505 20.5452V280.709C62.1505 290.92 53.8699 299.199 43.6577 299.199H20.5622C9.21997 299.199 0.0146484 308.404 0.0146484 319.745V539.455C0.0146484 550.796 9.21997 560 20.5622 560H86.746C94.3075 560 94.3075 560 86.746 560H33.7743C30.747 560 30.747 560 33.7743 560H474.397C485.739 560 494.944 550.796 494.944 539.455V491.831C494.944 480.49 504.15 471.286 515.492 471.286H755.467Z');"
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply block sm:hidden" 
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                    </figure>
+                  {% endif %}
+                {% endif %}
+                {% if post.thumbnail %}
+                  {% if post.shapeMask == '3' %}
+                    <figure class="boxed md:w-[830px] md:h-[608px] figure flex">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply hidden sm:block" 
+                        style="clip-path: path('M743.648 415.168C757.679 415.168 769.067 403.775 769.067 389.737V26.0088C769.067 11.9714 757.679 0.578613 743.648 0.578613H213.77C199.739 0.578613 188.35 11.9714 188.35 26.0088V126.636C188.35 140.674 176.962 152.066 162.931 152.066H25.4345C11.4028 152.066 0.0146484 163.459 0.0146484 177.497V238.224C0.0146484 252.262 11.4028 263.756 25.4345 263.883L77.6469 264.366C91.6787 264.494 103.067 275.988 103.067 290.051V455.042H103.118C103.118 455.042 103.168 466.435 103.168 480.473V541.2C103.168 555.237 114.557 566.63 128.588 566.63H479.078C493.109 566.63 504.497 555.237 504.497 541.2V440.572C504.497 426.535 515.886 415.142 529.917 415.142H743.622L743.648 415.168Z');"
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply block sm:hidden" 
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                    </figure>
+                  {% endif %}
+                {% endif %}
+                {% if post.thumbnail %}
+                  {% if post.shapeMask == '4' %}
+                    <figure class="boxed md:w-[830px] md:h-[603px] figure flex">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply hidden sm:block" 
+                        style="clip-path: path('M743.924 412.682C757.811 412.632 769.082 401.311 769.082 387.424V25.8163C769.082 11.9296 757.811 0.65918 743.924 0.65918H142.192C128.305 0.65918 116.984 11.9296 116.909 25.8163L116.431 114.671C116.355 128.558 105.035 139.828 91.148 139.853L25.488 139.904C11.6012 139.904 0.305705 151.199 0.255391 165.086L0.0289772 236.004C-0.0213371 249.891 11.1987 261.312 25.1106 261.488L104.355 262.519C118.242 262.696 129.513 274.117 129.513 288.004V389.588C129.513 403.475 140.783 414.77 154.67 414.821L438.492 415.726C452.379 415.777 463.574 427.072 463.498 440.959L462.92 534.921C462.844 548.807 474.039 560.027 487.926 559.977L644.126 559.348C658.013 559.298 669.384 547.977 669.51 534.09L670.34 438.116C670.466 424.229 681.837 412.909 695.723 412.858L743.975 412.657L743.924 412.682Z');"                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                      <img 
+                        class="lazyload grayscale mix-blend-multiply block sm:hidden" 
+                        src="{{ post.thumbnail.src }}"
+                        data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+                        data-sizes="auto"
+                        alt="{{ post.title }}">
+                    </figure>
+                  {% endif %}
+                {% endif %}
+              </div>
+              <div class="content w-full h-full flex flex-col justify-between items-stretch">
+                <div class="font-h1 boxed">
+                  {# {% if post.end_date %}<span>{{ post.end_date|date("d") }}<br>{{ post.end_date|date("m") }}<br>{{ post.end_date|date("y") }}</span>{% endif %} #}
+                  {{ post.end_date|date("d.m.y")|escape('wp_kses_post') }}
+                </div>
+                {# <h2 class="font-h1">{{ post.title }}</h2> #}
+                <div class="marquee">
+                  <h2 class="marquee--inner font-h1">
+                    <span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span>
+                    <span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span>
+                    <span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span>
+                    <span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span><span class="px-sm">{{ post.title }}</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </flynt-component>
+{% endif %}
