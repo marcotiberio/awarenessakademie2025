@@ -18,6 +18,15 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
+                'label' => __('Title', 'flynt'),
+                'name' => 'blockTitle',
+                'type' => 'text',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => 100
+                ],
+            ],
+            [
                 'label' => __('Text position', 'flynt'),
                 'name' => 'textPosition',
                 'type' => 'button_group',
