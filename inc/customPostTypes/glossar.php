@@ -8,13 +8,13 @@
 
 namespace Flynt\CustomPostTypes;
 
-function registerRoundtablePostType()
+function registerGlossarPostType()
 {
     $labels = [
-        'name'                  => _x('Roundtables', 'Post Type General Name', 'flynt'),
-        'singular_name'         => _x('Roundtable', 'Post Type Singular Name', 'flynt'),
-        'menu_name'             => __('Roundtables', 'flynt'),
-        'name_admin_bar'        => __('Roundtables', 'flynt'),
+        'name'                  => _x('Glossar Terms', 'Post Type General Name', 'flynt'),
+        'singular_name'         => _x('Glossar Term', 'Post Type Singular Name', 'flynt'),
+        'menu_name'             => __('Glossar Terms', 'flynt'),
+        'name_admin_bar'        => __('Glossar Terms', 'flynt'),
         'archives'              => __('Item Archives', 'flynt'),
         'attributes'            => __('Item Attributes', 'flynt'),
         'parent_item_colon'     => __('Parent Item:', 'flynt'),
@@ -40,17 +40,17 @@ function registerRoundtablePostType()
         'filter_items_list'     => __('Filter items list', 'flynt'),
     ];
     $args = [
-        'label'                 => __('Roundtable', 'flynt'),
-        'description'           => __('Roundtable Description', 'flynt'),
+        'label'                 => __('Glossar Term', 'flynt'),
+        'description'           => __('Glossar Term Description', 'flynt'),
         'labels'                => $labels,
         'supports'              => ['title', 'thumbnail'],
-        'taxonomies'            => ['', 'post_tag'],
+        'taxonomies'            => ['glossar-letter'],
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
-        'menu_position'         => 9,
-        'menu_icon'             => 'dashicons-rss',
+        'menu_position'         => 10,
+        'menu_icon'             => 'dashicons-book',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -59,7 +59,7 @@ function registerRoundtablePostType()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('roundtable', $args);
+    register_post_type('glossar', $args);
 }
 
-add_action('init', '\\Flynt\\CustomPostTypes\\registerRoundtablePostType');
+add_action('init', '\\Flynt\\CustomPostTypes\\registerGlossarPostType');

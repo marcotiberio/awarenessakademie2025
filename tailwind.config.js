@@ -94,6 +94,7 @@ module.exports = {
         lg: '75px',
         xl: '100px',
         xxl: '120px',
+        max: '200px',
         navHeightMobile: '75px',
         navHeightDesktop: '150px'
       }

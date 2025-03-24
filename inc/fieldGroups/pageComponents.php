@@ -101,6 +101,8 @@ add_action('Flynt/afterRegisterComponents', function () {
                     // Components\HeroMultimediaComplex\getACFLayout(),
                     Components\ListingFeatNews\getACFLayout(),
                     Components\ListingFeatProjects\getACFLayout(),
+                    Components\ListingGlossar\getACFLayout(),
+                    Components\ListingNetwork\getACFLayout(),
                     Components\ListingNews\getACFLayout(),
                     Components\ListingPastRoundtables\getACFLayout(),
                     Components\ListingFutureRoundtables\getACFLayout(),
@@ -147,6 +149,16 @@ add_action('Flynt/afterRegisterComponents', function () {
                     'param' => 'post_type',
                     'operator' => '!=',
                     'value' => 'roundtable'
+                ],
+                [
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'netzwerk'
+                ],
+                [
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'glossar'
                 ],
                 [
                     'param' => 'post_type',
