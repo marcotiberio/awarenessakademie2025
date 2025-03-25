@@ -43,15 +43,15 @@ function getACFLayout()
                     'width' => 75
                 ],
             ],
-            [
-                'label' => __('Button', 'flynt'),
-                'name' => 'buttonLinkLeft',
-                'type' => 'link',
-                'required' => 0,
-                'wrapper' => [
-                    'width' => 25
-                ],
-            ],
+            // [
+            //     'label' => __('Button', 'flynt'),
+            //     'name' => 'buttonLinkLeft',
+            //     'type' => 'link',
+            //     'required' => 0,
+            //     'wrapper' => [
+            //         'width' => 25
+            //     ],
+            // ],
             [
                 'label' => __('Center Box', 'flynt'),
                 'name' => 'contentCenterBox',
@@ -71,15 +71,15 @@ function getACFLayout()
                     'width' => 75
                 ],
             ],
-            [
-                'label' => __('Button', 'flynt'),
-                'name' => 'buttonLinkCenter',
-                'type' => 'link',
-                'required' => 0,
-                'wrapper' => [
-                    'width' => 25
-                ],
-            ],
+            // [
+            //     'label' => __('Button', 'flynt'),
+            //     'name' => 'buttonLinkCenter',
+            //     'type' => 'link',
+            //     'required' => 0,
+            //     'wrapper' => [
+            //         'width' => 25
+            //     ],
+            // ],
             [
                 'label' => __('Right Box', 'flynt'),
                 'name' => 'contentRightBox',
@@ -99,15 +99,15 @@ function getACFLayout()
                     'width' => 75
                 ],
             ],
-            [
-                'label' => __('Button', 'flynt'),
-                'name' => 'buttonLinkRight',
-                'type' => 'link',
-                'required' => 0,
-                'wrapper' => [
-                    'width' => 25
-                ],
-            ],
+            // [
+            //     'label' => __('Button', 'flynt'),
+            //     'name' => 'buttonLinkRight',
+            //     'type' => 'link',
+            //     'required' => 0,
+            //     'wrapper' => [
+            //         'width' => 25
+            //     ],
+            // ],
             [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',

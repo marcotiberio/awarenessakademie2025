@@ -1,3 +1,7 @@
 flynt-component[name='BlockBoxes3'] {
-  
+  .wysiwyg {
+    * {
+        @apply mb-0;
+    }
+  }
 }

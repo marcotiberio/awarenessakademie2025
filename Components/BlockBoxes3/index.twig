@@ -11,7 +11,7 @@
     {% endif %}
     <div class="wrapper flex flex-col lg:flex-row align-top justify-between">
       <div class="content-left lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="lg:w-4/5">
+        <div class="wysiwyg">
           {% if contentHtmlLeft %}
             {{ contentHtmlLeft|e('wp_kses_post') }}
           {% endif %}
@@ -19,7 +19,7 @@
         {% if buttonLinkLeft %}
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
             <a 
-              class="button button--link" 
+              class="button button--link font-h3" 
               href="{{ buttonLinkLeft.url }}" 
               {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
               {{ buttonLinkLeft.title }}
@@ -28,7 +28,7 @@
         {% endif %}
       </div>
       <div class="content-left lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="lg:w-4/5">
+        <div class="wysiwyg">
           {% if contentHtmlCenter %}
             {{ contentHtmlCenter|e('wp_kses_post') }}
           {% endif %}
@@ -36,7 +36,7 @@
         {% if buttonLinkCenter %}
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
             <a 
-              class="button button--link" 
+              class="button button--link font-h3" 
               href="{{ buttonLinkCenter.url }}" 
               {% if buttonLinkCenter.target %} target="{{ buttonLinkCenter.target }}" rel="noreferrer noopener"{% endif %}>
               {{ buttonLinkCenter.title }}
@@ -45,7 +45,7 @@
         {% endif %}
       </div>
       <div class="content-right lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="lg:w-4/5">
+        <div class="wysiwyg">
           {% if contentHtmlRight %}
             {{ contentHtmlRight|e('wp_kses_post') }}
           {% endif %}
@@ -53,7 +53,7 @@
         {% if buttonLinkRight %}
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
             <a 
-              class="button button--link" 
+              class="button button--link font-h3" 
               href="{{ buttonLinkRight.url }}" 
               {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
               {{ buttonLinkRight.title }}

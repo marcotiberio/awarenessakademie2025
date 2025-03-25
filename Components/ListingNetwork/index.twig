@@ -8,7 +8,7 @@
       background-color: {% if options.pageBackground %}{{ options.pageBackground }}{% else %}transparent{% endif %};">
     <div x-cloak x-data="{ open: false }" class="">
       {% if blockTitle %}
-        <button @click="open = ! open" class="font-h2 boxed !py-xs">
+        <button @click="open = ! open" class="font-h2 boxed !py-xs hover:underline">
           {{ blockTitle }}
         </button>
       {% endif %}
