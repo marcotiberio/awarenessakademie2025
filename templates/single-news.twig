@@ -4,37 +4,36 @@
   <article 
     class="post" 
     style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}{% else %}transparent{% endif %}; ">
-    <header class="post-header w-full max-w-screen-max mx-auto flex flex-col gap-sm md:gap-md pt-[60px] lg:pt-[260px] lg:min-h-[calc(100vh_-_260px)]">
-      {{ renderComponent('BlockArtistHeader', { post: post }) }}
-    </header>
-    <section class="post-main boxed flex flex-col">
-      <div class="post-main flex flex-col-reverse sm:flex-row gap-md">
-        <div class="w-full sm:w-2/3">
-          {% if post.mainText %}
-            {{ post.mainText }}
-          {% endif %}
+    <main class="post-main w-full max-w-screen-max mx-auto">
+      <div class="boxed boxed--small flex flex-col md:flex-row justify-between">
+        <div class="md:pr-sm w-full md:w-1/5 uppercase">
+          {{ post.date|date("d.m.y")|escape('wp_kses_post') }}
         </div>
-        <div class="w-full sm:w-1/3 flex flex-col gap-xs">
-          {% for item in post.socialmediaRepeater %}
-            {% if item.socialmediaLink %}
-              <a class="button button--link w-full p-sm flex flex-row items-center justify-between !normal-case" href="{{ item.socialmediaLink }}" target="_blank" rel="noreferrer noopener">
-                <div class="">{{ item.socialmediaTitle }}</div>
-              </a>
+        <div class="w-full md:w-3/5">
+          <h1 class="mb-md">{{ post.title }}</h1>
+          <div class="w-full">
+            {% if post.mainText %}
+              {{ post.mainText }}
             {% endif %}
-          {% endfor %}
+          </div>
         </div>
-      </div>
-      {% if post.contactForm %}
-        <div class="w-full h-full" id="contact">
-          {{ post.contactForm }}
+        {% if post.imageFeat %}
+        <div class="featuredImage md:pl-sm w-full md:w-1/5 ">
+          <img 
+            class="lazyload object-cover"
+            src="{{ post.imageFeat.src }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', post.imageFeat.id)}}"
+            data-sizes="auto">
         </div>
       {% endif %}
-      {# {% for component in post.meta('postComponents') %}
+      </div>
+    </main>
+    {# <section class="post-main flex flex-col mb-lg">
+      <div class="post-main flex flex-col-reverse sm:flex-row gap-md">
+      </div>
+      {% for component in post.meta('newsComponents') %}
         {{ renderComponent(component) }}
-      {% endfor %} #}
-    </section>
-    <section class="post-related">
-      {# {{ renderComponent('RelatedPosts', {'preContentTitle': '<h2>' ~ __('Related News') ~ '</h2>', 'taxonomies': post.categories(), 'options': {'maxPosts': 3}}) }} #}
-    </section>
+      {% endfor %}
+    </section> #}
   </article>
 {% endblock %}

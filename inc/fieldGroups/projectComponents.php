@@ -60,6 +60,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'layouts' => [
                     Components\BlockBoxes2\getACFLayout(),
                     Components\BlockBoxes3\getACFLayout(),
+                    Components\BlockContactForm\getACFLayout(),
                     Components\BlockWysiwyg\getACFLayout(),
                 ],
             ],

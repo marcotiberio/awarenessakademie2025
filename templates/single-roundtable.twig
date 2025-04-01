@@ -5,17 +5,17 @@
     class="post boxed flex flex-col gap-sm" 
     style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}{% else %}transparent{% endif %}; ">
     <header class="post-header flex flex-col md:flex-row md:gap-xs justify-start">
-      <div class="w-full md:w-1/6">
+      <div class="w-full md:w-1/5">
         {% if post.start_date %}<span>{{ post.start_date|date("d.m.y")|escape('wp_kses_post') }} - </span>{% endif %}
         {% if post.end_date %}<span>{{ post.end_date|date("d.m.y")|escape('wp_kses_post') }}</span>{% endif %}
       </div>
-      <div class="w-full md:w-4/6 flex items-end align-bottom">
+      <div class="w-full md:w-4/5 flex items-end align-bottom">
         <h1 class="!mb-0">{{ post.title }}</h1>
       </div>
     </header>
     <section class="post-main flex flex-col md:flex-row md:gap-xs justify-start">
-      <div class="w-full md:w-1/6"></div>
-      <div class="w-full md:w-4/6">
+      <div class="w-full md:w-1/5"></div>
+      <div class="w-full md:w-3/5">
         {% if post.intro %}
           {{ post.intro }}
         {% endif %}

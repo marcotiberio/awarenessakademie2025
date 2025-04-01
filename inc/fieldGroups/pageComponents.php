@@ -81,6 +81,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     // Components\BlockBanner\getACFLayout(),
                     Components\BlockBoxes2\getACFLayout(),
                     Components\BlockBoxes3\getACFLayout(),
+                    Components\BlockContactForm\getACFLayout(),
                     // Components\BlockCollapse\getACFLayout(),
                     // Components\BlockContactForm\getACFLayout(),
                     // Components\BlockCountdown\getACFLayout(),
