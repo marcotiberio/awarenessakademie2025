@@ -59,7 +59,7 @@ function registerProjectPostType()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('projekte', $args);
+    register_post_type('projekt', $args);
 }
 
 add_action('init', '\\Flynt\\CustomPostTypes\\registerProjectPostType');

@@ -4,66 +4,66 @@ use ACFComposer\ACFComposer;
 use Flynt\Components;
 
 add_action('Flynt/afterRegisterComponents', function () {
-    ACFComposer::registerFieldGroup([
-        'name' => 'pageMeta',
-        'title' => 'Page Meta',
-        'style' => '',
-        'fields' => [
-            [
-                'label' => __('Page Options', 'flynt'),
-                'name' => 'optionsTab',
-                'type' => 'tab',
-                'placement' => 'top',
-                'endpoint' => 0
-            ],
-            [
-                'label' => __('Page Background', 'flynt'),
-                'name' => 'pageBackground',
-                'type' => 'color_picker',
-                'default' => '#ffffff',
-                'required' => 0
-            ]
-        ],
-        'location' => [
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'page'
-                ]
-            ],
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'post'
-                ],
-            ],
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'news'
-                ],
-            ],
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'offer'
-                ],
-            ],
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'resource'
-                ],
-            ],
-        ],
-        'menu_order' => 0,
-        'position' => 'side',
-    ]);
+    // ACFComposer::registerFieldGroup([
+    //     'name' => 'pageMeta',
+    //     'title' => 'Page Meta',
+    //     'style' => '',
+    //     'fields' => [
+    //         [
+    //             'label' => __('Page Options', 'flynt'),
+    //             'name' => 'optionsTab',
+    //             'type' => 'tab',
+    //             'placement' => 'top',
+    //             'endpoint' => 0
+    //         ],
+    //         [
+    //             'label' => __('Page Background', 'flynt'),
+    //             'name' => 'pageBackground',
+    //             'type' => 'color_picker',
+    //             'default' => '#ffffff',
+    //             'required' => 0
+    //         ]
+    //     ],
+    //     'location' => [
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '==',
+    //                 'value' => 'page'
+    //             ]
+    //         ],
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '!=',
+    //                 'value' => 'post'
+    //             ],
+    //         ],
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '!=',
+    //                 'value' => 'news'
+    //             ],
+    //         ],
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '!=',
+    //                 'value' => 'offer'
+    //             ],
+    //         ],
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '!=',
+    //                 'value' => 'resource'
+    //             ],
+    //         ],
+    //     ],
+    //     'menu_order' => 0,
+    //     'position' => 'side',
+    // ]);
     ACFComposer::registerFieldGroup([
         'name' => 'pageComponents',
         'title' => __('Page Components', 'flynt'),
@@ -143,7 +143,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 [
                     'param' => 'post_type',
                     'operator' => '!=',
-                    'value' => 'resource'
+                    'value' => 'projekt'
                 ],
                 [
                     'param' => 'post_type',

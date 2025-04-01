@@ -41,6 +41,7 @@ add_filter('Flynt/addComponentData?name=ListingResources', function ($data) {
 
     return $data;
 });
+
 function getACFLayout()
 {
     return [

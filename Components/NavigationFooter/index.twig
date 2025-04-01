@@ -1,37 +1,25 @@
-<flynt-component load:on="visible" name="NavigationFooter" class="w-full h-[335px] bg-white text-black">
-  <div class="w-full h-full boxed boxed--coloured flex flex-col justify-between gap-xxl">
-    <div class="grid grid-cols-2 gap-xs">
-      <div class="w-full flex flex-col gap-sm">
-        {% if contentHtmlLeft %}
-          <div class="wysiwyg">{{ contentHtmlLeft|e('wp_kses_post') }}</div>
-          {% if logoFooterLeft %}
-            <img class="lazyload w-full max-w-[150px] md:max-w-[300px] h-auto"
-              src="{{ logoFooterLeft.src }}"
-              data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterLeft.id)}}"
-              data-sizes="auto"
-              alt="{{ logoFooterLeft.alt|e }}">
-          {% endif %}
-        {% endif %}
-      </div>
-      <div class="w-full flex flex-col gap-sm">
-        {% if contentHtmlRight %}
-          <div class="wysiwyg">{{ contentHtmlRight|e('wp_kses_post') }}</div>
-          {% if logoFooterRight %}
-            <img class="lazyload w-full max-w-[150px] md:max-w-[300px] h-auto"
-              src="{{ logoFooterRight.src }}"
-              data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterRight.id)}}"
-              data-sizes="auto"
-              alt="{{ logoFooterRight.alt|e }}">
-          {% endif %}
-        {% endif %}
-      </div>
-    </div>
+<flynt-component load:on="visible" name="NavigationFooter" class="w-full bg-black text-white">
+  <div class="w-full h-full py-xxs px-sm flex flex-col md:flex-row justify-between gap-lg">
+    {% if logoFooterLeft %}
+      <img class="lazyload w-[100px] h-auto invert"
+        src="{{ logoFooterLeft.src }}"
+        data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterLeft.id)}}"
+        data-sizes="auto"
+        alt="{{ logoFooterLeft.alt|e }}">
+    {% endif %}
     {% if menu %}
       <nav 
         class="navigation w-full flex justify-between items-center" 
         aria-label="{{ labels.ariaLabel }}">
         {% include 'Partials/_menu.twig' with { 'items': menu.get_items, 'level': '0', 'maxLevel': maxLevel } only %}
       </nav>
+    {% endif %}
+    {% if logoFooterRight %}
+      <img class="lazyload w-full max-w-[150px] md:max-w-[300px] h-auto"
+        src="{{ logoFooterRight.src }}"
+        data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterRight.id)}}"
+        data-sizes="auto"
+        alt="{{ logoFooterRight.alt|e }}">
     {% endif %}
     {# {% include 'Partials/_backtotop.twig' %} #}
   </div>

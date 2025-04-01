@@ -47,38 +47,22 @@ function getACFLayout()
                 'media_upload' => 1,
                 'required' => 1,
             ],
-            [
-                'label' => __('Form', 'flynt'),
-                'name' => 'formTab',
-                'type' => 'tab',
-                'placement' => 'top',
-                'endpoint' => 0
-            ],
-            [
-                'label' => __('Form', 'flynt'),
-                'name' => 'formHtml',
-                'type' => 'wysiwyg',
-                'tabs' => 'visual',
-                'delay' => 1,
-                'media_upload' => 0,
-                'required' => 0,
-            ],
-            [
-                'label' => __('Options', 'flynt'),
-                'name' => 'optionsTab',
-                'type' => 'tab',
-                'placement' => 'top',
-                'endpoint' => 0
-            ],
-            [
-                'label' => '',
-                'name' => 'options',
-                'type' => 'group',
-                'layout' => 'row',
-                'sub_fields' => [
-                    FieldVariables\getColorBackground(),
-                ]
-            ]
+            // [
+            //     'label' => __('Options', 'flynt'),
+            //     'name' => 'optionsTab',
+            //     'type' => 'tab',
+            //     'placement' => 'top',
+            //     'endpoint' => 0
+            // ],
+            // [
+            //     'label' => '',
+            //     'name' => 'options',
+            //     'type' => 'group',
+            //     'layout' => 'row',
+            //     'sub_fields' => [
+            //         FieldVariables\getColorBackground(),
+            //     ]
+            // ]
         ]
     ];
 }

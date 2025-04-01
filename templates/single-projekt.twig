@@ -1,0 +1,40 @@
+{% extends 'templates/_document.twig' %}
+
+{% block content %}
+  <article 
+    class="post" 
+    style="background-color: {% if post.pageBackground %}{{ post.pageBackground }}{% else %}transparent{% endif %}; ">
+    <header class="post-header w-full max-w-screen-max mx-auto">
+      <div class="boxed boxed--small flex flex-col md:flex-row">
+        <div class="pr-sm w-full md:w-1/5 uppercase">
+          {{ post.type.labels.name }}
+        </div>
+        <h1 class="uppercase">{{ post.title }}</h1>
+      </div>
+      {% if post.thumbnail %}
+        <div class="featuredImage w-full h-full">
+          <img 
+            class="lazyload object-cover aspect-video md:aspect-16/6"
+            src="{{ post.thumbnail.src }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+            data-sizes="auto">
+        </div>
+      {% endif %}
+    </header>
+    <section class="post-main flex flex-col mb-lg">
+      {# <div class="post-main flex flex-col-reverse sm:flex-row gap-md">
+        <div class="w-full sm:w-2/3">
+          {% if post.mainText %}
+            {{ post.mainText }}
+          {% endif %}
+        </div>
+      </div> #}
+      {% for component in post.meta('projectComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+    </section>
+    <section class="post-related">
+      {# {{ renderComponent('RelatedPosts', {'preContentTitle': '<h2>' ~ __('Related News') ~ '</h2>', 'taxonomies': post.categories(), 'options': {'maxPosts': 3}}) }} #}
+    </section>
+  </article>
+{% endblock %}

@@ -4,16 +4,36 @@
   style="">
   <div class="wrapper w-screen h-[calc(100vh_-_110px)]">
     <div class="blob">
-      <div class="blob-layer blob-layer__0" data-blob-disallow="y" data-blob-deep="1000" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/hero-home.jpg')"></div>
-      <div class="blob-layer blob-layer__1" data-blob-deep="60" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/Bubble1.png')"></div>
-      <div class="blob-layer blob-layer__2" data-blob-deep="120" style="background-image: url('')"></div>
-      <div class="blob-layer blob-layer__3" data-blob-deep="180" style="background-image: url('')"></div>
-      <div class="blob-layer blob-layer__4" data-blob-deep="240" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/Bubble4.png')"></div>
-      <div class="blob-layer blob-layer__5" data-blob-deep="300" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/Bubble5-Kopie.png')"></div>
-      <div class="blob-layer blob-layer__6" data-blob-deep="360" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/Bubble6-Kopie.png')"></div>
-      <div class="blob-layer blob-layer__7" data-blob-deep="420" style="background-image: url('http://localhost:10077/wp-content/uploads/2025/03/Bubble7-Kopie.png')"></div>
-      <div class="blob-layer blob-layer__8" data-blob-deep="480" style="background-image: url('')"></div>
-      <h1 class="hero-title">Die Awareness Akademie unterstützt die Entwicklung diskriminierungssensibler Strukturen innerhalb der Clubkultur und begleitet euch dabei, vielfältige Räume selbst zu gestalten.</h1>
+      {% if imageBg %}
+        <div class="blob-layer blob-layer__0" data-blob-disallow="y" data-blob-deep="1000" style="background-image: url('{{ imageBg.src }}')"></div>
+      {% endif %}
+      {% if image1 %}
+        <div class="blob-layer blob-layer__1" data-blob-deep="60" style="background-image: url('{{ image1.src }}')"></div>
+      {% endif %}
+      {% if image2 %}
+        <div class="blob-layer blob-layer__2" data-blob-deep="120" style="background-image: url('{{ image2.src }}')"></div>
+      {% endif %}
+      {% if image3 %}
+        <div class="blob-layer blob-layer__3" data-blob-deep="180" style="background-image: url('{{ image3.src }}')"></div>
+      {% endif %}
+      {% if image4 %}
+        <div class="blob-layer blob-layer__4" data-blob-deep="240" style="background-image: url('{{ image4.src }}')"></div>
+      {% endif %}
+      {% if image5 %}
+        <div class="blob-layer blob-layer__5" data-blob-deep="300" style="background-image: url('{{ image5.src }}')"></div>
+      {% endif %}
+      {% if image6 %}
+        <div class="blob-layer blob-layer__6" data-blob-deep="360" style="background-image: url('{{ image6.src }}')"></div>
+      {% endif %}
+      {% if image7 %}
+        <div class="blob-layer blob-layer__7" data-blob-deep="420" style="background-image: url('{{ image7.src }}')"></div>
+      {% endif %}
+      {% if image8 %}
+        <div class="blob-layer blob-layer__8" data-blob-deep="480" style="background-image: url('{{ image8.src }}')"></div>
+      {% endif %}
+      {% if blockTitle %}
+        <h1 class="hero-title">{{ blockTitle }}</h1>
+      {% endif %}
 		</div>
   </div>
 </flynt-component>

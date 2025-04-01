@@ -3,6 +3,24 @@
 namespace Flynt\Components\BlockBoxes2;
 
 use Flynt\FieldVariables;
+use Flynt\Utils\Options;
+use Timber\Timber;
+
+const POST_TYPE = 'glossar';
+
+add_filter('Flynt/addComponentData?name=BlockBoxes2', function ($data) {
+    $postType = POST_TYPE;
+
+    $data['posts'] = Timber::get_posts([
+        'post_status' => 'publish',
+        'post_type' => $postType,
+        'ignore_sticky_posts' => 1,
+        'posts_per_page' => 1,
+        'orderby' => 'rand',
+    ]);
+
+    return $data;
+});
 
 function getACFLayout()
 {
@@ -32,6 +50,11 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
+                'label' => __('Title', 'flynt'),
+                'name' => 'boxTitleLeft',
+                'type' => 'text'
+            ],
+            [
                 'label' => __('Text', 'flynt'),
                 'name' => 'contentHtmlLeft',
                 'type' => 'wysiwyg',
@@ -58,6 +81,19 @@ function getACFLayout()
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0,
+            ],
+            [
+                'label' => __('Title', 'flynt'),
+                'name' => 'boxTitleRight',
+                'type' => 'text'
+            ],
+            [
+                'label' => __('Feeling lucky?', 'flynt'),
+                'instructions' => __('Select if you want to display a random term of the glossar!', 'flynt'),
+                'name' => 'showRandomPost',
+                'type' => 'true_false',
+                'default_value' => 0,
+                'ui' => 1
             ],
             [
                 'label' => __('Text', 'flynt'),

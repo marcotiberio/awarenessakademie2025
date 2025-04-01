@@ -7,16 +7,16 @@
       color: {% if options.colorText %}{{ options.colorText }}{% else %}var(--black){% endif %};
       background-color: {% if options.pageBackground %}{{ options.pageBackground }}{% else %}transparent{% endif %};">
     <div class="boxed">
-      <div class="grid grid-cols-3 gap-sm">
+      <div class="flex flex-col md:flex-row gap-sm">
         {% for post in posts %}
           <a 
-            class="w-full [&_img]:hover:invert" 
+            class="w-full md:w-1/4 flex-wrap [&_img]:hover:invert" 
             href="{{ post.link }}" 
             aria-label="{{ post.title }}">
-            <div class="post w-full h-full flex flex-col gap-xs justify-between items-center" >
+            <div class="post w-full h-auto flex flex-col gap-xs justify-between items-center" >
               {% if post.thumbnail %}
                 <img 
-                  class="lazyload transition duration-200 ease-in-out h-[350px] object-cover" 
+                  class="lazyload transition duration-200 ease-in-out h-[250px] md:h-[300px] object-cover" 
                   src="{{ post.thumbnail.src }}"
                   data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
                   data-sizes="auto"

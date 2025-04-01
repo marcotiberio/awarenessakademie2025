@@ -37,49 +37,15 @@ add_filter('Flynt/addComponentData?name=NavigationFooter', function ($data) {
 });
 
 Options::addTranslatable('NavigationFooter', [
-    // [
-    //     'label' => __('Logo', 'flynt'),
-    //     'name' => 'logoTab',
-    //     'type' => 'tab',
-    //     'placement' => 'top',
-    //     'endpoint' => 0
-    // ],
-    // [
-    //     'label' => __('Logo', 'flynt'),
-    //     'name' => 'logoFooter',
-    //     'type' => 'image',
-    //     'preview_size' => 'medium',
-    //     'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
-    //     'required' => 0,
-    //     'mime_types' => 'jpg,jpeg,png,svg',
-    //     'wrapper' =>  [
-    //         'width' => 100,
-    //     ]
-    // ],
     [
-        'label' => __('Left Column', 'flynt'),
-        'name' => 'contentLeftTab',
+        'label' => __('Logos', 'flynt'),
+        'name' => 'logosTab',
         'type' => 'tab',
         'placement' => 'top',
-        'endpoint' => 0,
-    ],
-    // [
-    //     'label' => __('Title', 'flynt'),
-    //     'name' => 'blockTitleLeft',
-    //     'type' => 'text',
-    //     'instructions' => __('Want to add a headline? And a paragraph? Go ahead! Or just leave it empty and nothing will be shown.', 'flynt'),
-    // ],
-    [
-        'label' => __('Text', 'flynt'),
-        'name' => 'contentHtmlLeft',
-        'type' => 'wysiwyg',
-        'tabs' => 'visual',
-        'delay' => 1,
-        'media_upload' => 0,
-        'required' => 0,
+        'endpoint' => 0
     ],
     [
-        'label' => __('Logo', 'flynt'),
+        'label' => __('Logo Left', 'flynt'),
         'name' => 'logoFooterLeft',
         'type' => 'image',
         'preview_size' => 'medium',
@@ -87,33 +53,11 @@ Options::addTranslatable('NavigationFooter', [
         'required' => 0,
         'mime_types' => 'jpg,jpeg,png,svg',
         'wrapper' =>  [
-            'width' => 100,
+            'width' => 50,
         ]
     ],
     [
-        'label' => __('Right Column', 'flynt'),
-        'name' => 'contentRightTab',
-        'type' => 'tab',
-        'placement' => 'top',
-        'endpoint' => 0,
-    ],
-    // [
-    //     'label' => __('Title', 'flynt'),
-    //     'name' => 'blockTitleRight',
-    //     'type' => 'text',
-    //     'instructions' => __('Want to add a headline? And a paragraph? Go ahead! Or just leave it empty and nothing will be shown.', 'flynt'),
-    // ],
-    [
-        'label' => __('Text', 'flynt'),
-        'name' => 'contentHtmlRight',
-        'type' => 'wysiwyg',
-        'tabs' => 'visual',
-        'delay' => 1,
-        'media_upload' => 0,
-        'required' => 0,
-    ],
-    [
-        'label' => __('Logo', 'flynt'),
+        'label' => __('Logo Right', 'flynt'),
         'name' => 'logoFooterRight',
         'type' => 'image',
         'preview_size' => 'medium',
@@ -121,7 +65,7 @@ Options::addTranslatable('NavigationFooter', [
         'required' => 0,
         'mime_types' => 'jpg,jpeg,png,svg',
         'wrapper' =>  [
-            'width' => 100,
+            'width' => 50,
         ]
     ],
     // [

@@ -6,7 +6,7 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'post';
+const POST_TYPE = 'projekt';
 
 add_filter('Flynt/addComponentData?name=ListingFeatProjects', function ($data) {
     $postType = POST_TYPE;
@@ -19,7 +19,7 @@ add_filter('Flynt/addComponentData?name=ListingFeatProjects', function ($data) {
             return $taxonomy->term_id;
         }, $data['taxonomies'])),
         'ignore_sticky_posts' => 1,
-        'posts_per_page' => -1,
+        'posts_per_page' => 4,
         'orderby' => 'menu_order',
         'order' => 'ASC',
     ]);

@@ -12,17 +12,38 @@ add_filter('Flynt/addComponentData?name=ListingNews', function ($data) {
     $postType = POST_TYPE;
     $data['taxonomies'] = $data['taxonomies'] ?? [];
 
-    $data['posts'] = Timber::get_posts([
-        'post_status' => 'publish',
-        'post_type' => $postType,
-        'category' => join(',', array_map(function ($taxonomy) {
-            return $taxonomy->term_id;
-        }, $data['taxonomies'])),
-        'ignore_sticky_posts' => 1,
-        'posts_per_page' => -1,
-        'orderby' => 'menu_order',
-        'order' => 'ASC',
+    // Fetch all terms from the custom taxonomy "news-category"
+    $data['categories'] = Timber::get_terms([
+        'taxonomy'   => 'news-category',
+        'hide_empty' => false,
+        'exclude'    => get_option('default_category')
     ]);
+
+    // Fetch posts based on selected categories (if any)
+    $categoryIds = !empty($data['taxonomies'])
+        ? join(',', array_map(fn($taxonomy) => $taxonomy->term_id, $data['taxonomies']))
+        : '';
+
+    $queryArgs = [
+        'post_status'         => 'publish',
+        'post_type'           => $postType,
+        'ignore_sticky_posts' => 1,
+        'posts_per_page'      => -1,
+        'orderby'             => 'menu_order',
+        'order'               => 'ASC',
+    ];
+
+    if (!empty($categoryIds)) {
+        $queryArgs['tax_query'] = [
+            [
+                'taxonomy' => 'news-category',
+                'field'    => 'term_id',
+                'terms'    => explode(',', $categoryIds),
+            ],
+        ];
+    }
+
+    $data['posts'] = Timber::get_posts($queryArgs);
 
     return $data;
 });

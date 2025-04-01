@@ -6,7 +6,7 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'projekte';
+const POST_TYPE = 'projekt';
 
 add_filter('Flynt/addComponentData?name=ListingProjects', function ($data) {
     $postType = POST_TYPE;
