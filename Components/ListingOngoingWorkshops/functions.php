@@ -21,13 +21,13 @@ add_filter('Flynt/addComponentData?name=ListingOngoingWorkshops', function ($dat
         'meta_key' => 'end_date',
         'orderby' => 'meta_value',
         'order' => 'DESC',
-        'meta_query' => array(
-            array(
-                'key' => 'end_date',
-                'compare' => '>=',
-                'value' => $today,
-            ),
-        ),
+        // 'meta_query' => array(
+        //     array(
+        //         'key' => 'end_date',
+        //         'compare' => '>=',
+        //         'value' => $today,
+        //     ),
+        // ),
     ]);
 
     $data['postTypeArchiveLink'] = get_post_type_archive_link($postType);
