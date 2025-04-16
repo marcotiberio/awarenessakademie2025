@@ -42,7 +42,7 @@ function registerGlossarLetterTaxonomy()
         'show_tagcloud'              => true,
     ];
 
-    register_taxonomy('glossar-letter', ['glossar'], $args);
+    register_taxonomy('glossar-letter', ['glossar-term'], $args);
 }
 
 add_action('init', 'Flynt\\CustomTaxonomies\\registerGlossarLetterTaxonomy');

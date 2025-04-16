@@ -36,7 +36,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 [
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'netzwerk',
+                    'value' => 'netzwerk-partner',
                 ],
             ],
         ],

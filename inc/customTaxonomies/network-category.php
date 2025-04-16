@@ -42,7 +42,7 @@ function registerNetworkCategoryTaxonomy()
         'show_tagcloud'              => true,
     ];
 
-    register_taxonomy('network-category', ['netzwerk'], $args);
+    register_taxonomy('network-category', ['netzwerk-partner'], $args);
 }
 
 add_action('init', 'Flynt\\CustomTaxonomies\\registerNetworkCategoryTaxonomy');

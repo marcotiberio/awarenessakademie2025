@@ -11,10 +11,10 @@ namespace Flynt\CustomPostTypes;
 function registerNetworkPostType()
 {
     $labels = [
-        'name'                  => _x('Network', 'Post Type General Name', 'flynt'),
-        'singular_name'         => _x('Network', 'Post Type Singular Name', 'flynt'),
-        'menu_name'             => __('Network', 'flynt'),
-        'name_admin_bar'        => __('Network', 'flynt'),
+        'name'                  => _x('Network Partners', 'Post Type General Name', 'flynt'),
+        'singular_name'         => _x('Network Partner', 'Post Type Singular Name', 'flynt'),
+        'menu_name'             => __('Network Partners', 'flynt'),
+        'name_admin_bar'        => __('Network Partners', 'flynt'),
         'archives'              => __('Item Archives', 'flynt'),
         'attributes'            => __('Item Attributes', 'flynt'),
         'parent_item_colon'     => __('Parent Item:', 'flynt'),
@@ -40,8 +40,8 @@ function registerNetworkPostType()
         'filter_items_list'     => __('Filter items list', 'flynt'),
     ];
     $args = [
-        'label'                 => __('Network', 'flynt'),
-        'description'           => __('Network Description', 'flynt'),
+        'label'                 => __('Network Partner', 'flynt'),
+        'description'           => __('Network Partner Description', 'flynt'),
         'labels'                => $labels,
         'supports'              => ['title', 'thumbnail'],
         'taxonomies'            => ['network-category'],
@@ -59,7 +59,7 @@ function registerNetworkPostType()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('netzwerk', $args);
+    register_post_type('netzwerk-partner', $args);
 }
 
 add_action('init', '\\Flynt\\CustomPostTypes\\registerNetworkPostType');
