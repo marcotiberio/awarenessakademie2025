@@ -8,14 +8,14 @@
       background-color: {% if options.pageBackground %}{{ options.pageBackground }}{% else %}transparent{% endif %};">
     <div class="boxed boxed--small">
       {% if preContentHtml %}
-        <div class="font-titleSmall">
+        <div class="font-titleSmall !mb-sm">
           {{ preContentHtml|e('wp_kses_post') }}
         </div>
       {% endif %}
-      <div class="flex flex-col md:flex-row gap-x-sm gap-y-lg">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-sm gap-y-lg">
         {% for post in posts %}
           <a 
-            class="w-full md:w-1/2 [&_img]:hover:invert" 
+            class="w-full [&_img]:hover:invert" 
             href="{{ post.link }}" 
             aria-label="{{ post.title }}">
             <div class="post w-full h-full flex flex-col gap-xs justify-between items-center" >
