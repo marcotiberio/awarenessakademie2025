@@ -22,30 +22,42 @@
         </div>
       {% endif %}
       <div class="flex flex-col">
-        {% for post in posts %}
-        {% if post.ongoing == 0 %}
-          <div x-data="{ open: false }" class="post w-full h-full py-xs flex flex-col gap-xs border-t [&:last-child]:border-b">
-            <div class="justify-between grid grid-cols-1 md:grid-cols-2 gap-sm">
-              <div>
-                <div class="w-full">
-                  {% if post.start_date %}<span>{{ post.start_date|date("d.m.y")|escape('wp_kses_post') }} - </span>{% endif %}
-                  {% if post.end_date %}<span>{{ post.end_date|date("d.m.y")|escape('wp_kses_post') }}</span>{% endif %}
+        {% set hasPastPosts = false %}
+
+          {% for post in posts %}
+            {% if post.ongoing == 0 %}
+              {% set hasPastPosts = true %}
+              <a class="post w-full h-full py-xs flex flex-col gap-xs border-t [&:last-child]:border-b hover:bg-black hover:text-white hover:px-xs transition-all ease-in-out duration-100" href="{{ post.link }}" aria-label="{{ post.title }}">
+                <div class="justify-between grid grid-cols-1 md:grid-cols-2 gap-sm">
+                  <div class="flex flex-col gap-xs justify-between">
+                    <div>
+                      <div class="w-full">
+                        {% if post.start_date %}<span>{{ post.start_date|date("d.m.y")|escape('wp_kses_post') }} - </span>{% endif %}
+                        {% if post.end_date %}<span>{{ post.end_date|date("d.m.y")|escape('wp_kses_post') }}</span>{% endif %}
+                      </div>
+                      <div class="post w-full h-full font-h3 !mb-0">
+                        {{ post.title }}
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+                      {% if post.mainText %}
+                        <button class="button button--link">{{ labels.readMore }}</button>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="wysiwyg">{{ post.intro }}</div>
                 </div>
-                <a class="post w-full h-full font-h3 !mb-0" href="{{ post.link }}" aria-label="{{ post.title }}">
-                  {{ post.title }}
-                </a>
+              </a>
+            {% endif %}
+          {% endfor %}
+
+          {% if not hasPastPosts %}
+            <div class="post w-full h-full py-xs flex flex-col gap-xs border-t [&:last-child]:border-b">
+              <div class="post w-full h-full font-h3 !mb-0">
+                {{ labels.comingSoon }}
               </div>
-              <div class="wysiwyg">{{ post.intro }}</div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
-              {% if post.mainText %}
-                <button @click="open = ! open" class="button button--link lg:translate-y-[-36px]">{{ labels.readMore }}</button>
-              {% endif %}
-              <div x-show="open" y-transition class="wysiwyg">{{ post.mainText }}</div>
-            </div>
-          </div>
-        {% endif %}
-        {% endfor %}
+          {% endif %}
       </div>
     </div>
   </flynt-component>
