@@ -10,57 +10,36 @@
       </div>
     {% endif %}
     <div class="wrapper flex flex-col lg:flex-row align-top justify-between">
-      <div class="content-left lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="wysiwyg">
-          {% if contentHtmlLeft %}
-            {{ contentHtmlLeft|e('wp_kses_post') }}
-          {% endif %}
-        </div>
+      <a class="content-left lg:w-1/3 flex flex-col p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white [&_h3]:hover:text-white" href="{{ buttonLinkLeft.url }}" {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
+        {% if titleLeft %}
+          <div class="uppercase mb-[5px]">{{ titleLeft }}</div>
+        {% endif %}
         {% if buttonLinkLeft %}
-          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            <a 
-              class="button button--link font-h3" 
-              href="{{ buttonLinkLeft.url }}" 
-              {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
-              {{ buttonLinkLeft.title }}
-            </a>
-          </div>
+          <button class="button button--link">
+            <h3 class="!mb-0 lowercase">{{ buttonLinkLeft.title }}</h3>
+          </button>
         {% endif %}
-      </div>
-      <div class="content-left lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="wysiwyg">
-          {% if contentHtmlCenter %}
-            {{ contentHtmlCenter|e('wp_kses_post') }}
-          {% endif %}
-        </div>
+      </a>
+      <a class="content-left lg:w-1/3 flex flex-col p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white [&_h3]:hover:text-white" href="{{ buttonLinkCenter.url }}" {% if buttonLinkCenter.target %} target="{{ buttonLinkCenter.target }}" rel="noreferrer noopener"{% endif %}>
+        {% if titleCenter %}
+          <div class="uppercase mb-[5px]">{{ titleCenter }}</div>
+        {% endif %}
         {% if buttonLinkCenter %}
-          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            <a 
-              class="button button--link font-h3" 
-              href="{{ buttonLinkCenter.url }}" 
-              {% if buttonLinkCenter.target %} target="{{ buttonLinkCenter.target }}" rel="noreferrer noopener"{% endif %}>
-              {{ buttonLinkCenter.title }}
-            </a>
-          </div>
+          <button class="button button--link" >
+            <h3 class="!mb-0 lowercase">{{ buttonLinkCenter.title }}</h3>
+          </button>
         {% endif %}
-      </div>
-      <div class="content-right lg:w-1/3 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="wysiwyg">
-          {% if contentHtmlRight %}
-            {{ contentHtmlRight|e('wp_kses_post') }}
-          {% endif %}
-        </div>
+      </a>
+      <a class="content-right lg:w-1/3 flex flex-col p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white [&_h3]:hover:text-white" href="{{ buttonLinkRight.url }}" {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
+        {% if titleRight %}
+          <div class="uppercase mb-[5px]">{{ titleRight }}</div>
+        {% endif %}
         {% if buttonLinkRight %}
-          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            <a 
-              class="button button--link font-h3" 
-              href="{{ buttonLinkRight.url }}" 
-              {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
-              {{ buttonLinkRight.title }}
-            </a>
-          </div>
+          <button class="button button--link">
+            <h3 class="!mb-0 lowercase">{{ buttonLinkRight.title }}</h3>
+          </button>
         {% endif %}
-      </div>
+      </a>
     </div>
   </div>
 </flynt-component>

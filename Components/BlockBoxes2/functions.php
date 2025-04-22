@@ -14,7 +14,6 @@ add_filter('Flynt/addComponentData?name=BlockBoxes2', function ($data) {
     $data['posts'] = Timber::get_posts([
         'post_status' => 'publish',
         'post_type' => $postType,
-        'ignore_sticky_posts' => 1,
         'posts_per_page' => 1,
         'orderby' => 'rand',
     ]);
@@ -136,3 +135,40 @@ function getACFLayout()
         ]
     ];
 }
+
+Options::addTranslatable('BlockBoxes2', [
+    [
+        'label' => __('Labels', 'flynt'),
+        'name' => 'labelsTab',
+        'type' => 'tab',
+        'placement' => 'top',
+        'endpoint' => 0
+    ],
+    [
+        'label' => '',
+        'name' => 'labels',
+        'type' => 'group',
+        'sub_fields' => [
+            // [
+            //     'label' => __('Button Title', 'flynt'),
+            //     'name' => 'glossarButton',
+            //     'type' => 'text',
+            //     'default_value' => __('Laufend', 'flynt'),
+            //     'required' => 1,
+            //     'wrapper' => [
+            //         'width' => 100
+            //     ],
+            // ],
+            [
+                'label' => __('Glossar Box Title', 'flynt'),
+                'name' => 'glossarBoxTitle',
+                'type' => 'text',
+                'default_value' => __('Glossar', 'flynt'),
+                'required' => 1,
+                'wrapper' => [
+                    'width' => 100
+                ],
+            ]
+        ],
+    ]
+]);

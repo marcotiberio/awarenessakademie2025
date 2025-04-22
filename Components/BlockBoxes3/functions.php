@@ -32,26 +32,21 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
-                'label' => __('Text', 'flynt'),
-                'name' => 'contentHtmlLeft',
-                'type' => 'wysiwyg',
-                'tabs' => 'visual',
-                'delay' => 1,
-                'media_upload' => 0,
-                'required' => 0,
+                'label' => __('Title', 'flynt'),
+                'name' => 'titleLeft',
+                'type' => 'text',
                 'wrapper' => [
-                    'width' => 75
+                    'width' => 50
                 ],
             ],
-            // [
-            //     'label' => __('Button', 'flynt'),
-            //     'name' => 'buttonLinkLeft',
-            //     'type' => 'link',
-            //     'required' => 0,
-            //     'wrapper' => [
-            //         'width' => 25
-            //     ],
-            // ],
+            [
+                'label' => __('Button', 'flynt'),
+                'name' => 'buttonLinkLeft',
+                'type' => 'link',
+                'wrapper' => [
+                    'width' => 50
+                ],
+            ],
             [
                 'label' => __('Center Box', 'flynt'),
                 'name' => 'contentCenterBox',
@@ -60,26 +55,21 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
-                'label' => __('Text', 'flynt'),
-                'name' => 'contentHtmlCenter',
-                'type' => 'wysiwyg',
-                'tabs' => 'visual',
-                'delay' => 1,
-                'media_upload' => 0,
-                'required' => 0,
+                'label' => __('Title', 'flynt'),
+                'name' => 'titleCenter',
+                'type' => 'text',
                 'wrapper' => [
-                    'width' => 75
+                    'width' => 50
                 ],
             ],
-            // [
-            //     'label' => __('Button', 'flynt'),
-            //     'name' => 'buttonLinkCenter',
-            //     'type' => 'link',
-            //     'required' => 0,
-            //     'wrapper' => [
-            //         'width' => 25
-            //     ],
-            // ],
+            [
+                'label' => __('Button', 'flynt'),
+                'name' => 'buttonLinkCenter',
+                'type' => 'link',
+                'wrapper' => [
+                    'width' => 50
+                ],
+            ],
             [
                 'label' => __('Right Box', 'flynt'),
                 'name' => 'contentRightBox',
@@ -88,26 +78,21 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
-                'label' => __('Text', 'flynt'),
-                'name' => 'contentHtmlRight',
-                'type' => 'wysiwyg',
-                'tabs' => 'visual',
-                'delay' => 1,
-                'media_upload' => 0,
-                'required' => 0,
+                'label' => __('Title', 'flynt'),
+                'name' => 'titleRight',
+                'type' => 'text',
                 'wrapper' => [
-                    'width' => 75
+                    'width' => 50
                 ],
             ],
-            // [
-            //     'label' => __('Button', 'flynt'),
-            //     'name' => 'buttonLinkRight',
-            //     'type' => 'link',
-            //     'required' => 0,
-            //     'wrapper' => [
-            //         'width' => 25
-            //     ],
-            // ],
+            [
+                'label' => __('Button', 'flynt'),
+                'name' => 'buttonLinkRight',
+                'type' => 'link',
+                'wrapper' => [
+                    'width' => 50
+                ],
+            ],
             [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',

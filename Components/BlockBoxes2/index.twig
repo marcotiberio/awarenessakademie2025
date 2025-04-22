@@ -1,3 +1,4 @@
+{% if posts|length > 0 %}
 <flynt-component 
   load:on="visible" 
   name="BlockBoxes2" 
@@ -10,63 +11,64 @@
       </div>
     {% endif %}
     <div class="wrapper flex flex-col lg:flex-row align-top justify-between">
-      <div class="content-left lg:w-1/2 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
+      <a class="content-left lg:w-1/2 flex flex-col lg:flex-row p-xs lg:p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white" href="{{ buttonLinkLeft.url }}" {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
         <div class="lg:w-4/5">
           {% if boxTitleLeft %}
             {{ boxTitleLeft }}
           {% endif %}
-          <div>  
+          <div class="wysiwyg">  
             {% if contentHtmlLeft %}
               {{ contentHtmlLeft|e('wp_kses_post') }}
             {% endif %}
           </div>
         </div>
-        {% if buttonLinkLeft %}
-          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            <a 
-              class="button button--link" 
-              href="{{ buttonLinkLeft.url }}" 
-              {% if buttonLinkLeft.target %} target="{{ buttonLinkLeft.target }}" rel="noreferrer noopener"{% endif %}>
-              {{ buttonLinkLeft.title }}
-            </a>
-          </div>
-        {% endif %}
-      </div>
-      <div class="content-right lg:w-1/2 flex flex-col lg:flex-row p-sm border-y-0.5 lg:border-y border-x-0.5">
-        <div class="w-full lg:w-4/5 flex flex-col lg:flex-row justify-between">
-          <div class=" {% if showRandomPost %}block{% else %}hidden{% endif %}">
-            {% if boxTitleRight %}
-              {{ boxTitleRight }}
-            {% endif %}
-            {% if posts|length > 0 %}
-              <div>
-                {% for post in posts %}
-                  <div class="flex flex-col">
-                    <div class="w-full flex justify-start font-h1 !mb-[0.67em]" id="{{ post.title }}">{{ post.title }}</div>
-                    <div class="w-full wysiwyg">{{ post.description|e('wp_kses_post')}}</div>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-          <div class="{% if showRandomPost %}hidden{% else %}block{% endif %}">
+        <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
+          <button class="button button--link">
+            {{ buttonLinkLeft.title }}
+          </button>
+        </div>
+      </a>
+
+      {# Static Content #}
+      {% if showRandomPost == 0 %}
+      <a class="content-right lg:w-1/2 flex flex-col lg:flex-row p-xs lg:p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white" href="{{ buttonLinkRight.url }}" {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
+        <div class="lg:w-4/5">
+          {% if boxTitleRight %}
+            {{ boxTitleRight }}
+          {% endif %}
+          <div class="wysiwyg">  
             {% if contentHtmlRight %}
               {{ contentHtmlRight|e('wp_kses_post') }}
             {% endif %}
           </div>
         </div>
-        {% if buttonLinkRight %}
-          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            <a 
-              class="button button--link" 
-              href="{{ buttonLinkRight.url }}" 
-              {% if buttonLinkRight.target %} target="{{ buttonLinkRight.target }}" rel="noreferrer noopener"{% endif %}>
-              {{ buttonLinkRight.title }}
-            </a>
-          </div>
-        {% endif %}
+        <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
+          <button class="button button--link">
+            {{ buttonLinkRight.title }}
+          </button>
         </div>
-      </div>
+      </a>
+      {% endif %}
+
+      {# Glossar Term #}
+      {% if showRandomPost == 1 %}
+      {% for post in posts %}
+        <div class="content-right post lg:w-1/2 flex flex-col lg:flex-row p-xs lg:p-sm border-y-0.5 lg:border-y border-x-0.5">
+          <div class="lg:w-4/5 flex flex-col">
+            {{ labels.glossarBoxTitle }}
+            <div class="font-h1">{{ post.title }}</div>
+            <div class="wysiwyg">{{ post.description|raw }}</div>
+          </div>
+          <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
+            {# <button class="button button--link">
+              {{ labels.glossarButton }}
+            </button> #}
+          </div>
+        </div>
+      {% endfor %}
+      {% endif %}
+
     </div>
   </div>
 </flynt-component>
+{% endif %}

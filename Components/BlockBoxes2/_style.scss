@@ -1,42 +1,23 @@
 flynt-component[name='BlockBoxes2'] {
-  .container {
-    .preContent {
-      width: 100%;
+  .content-left,
+  .content-right {
+    &:hover {
+      button {
+        @apply text-white
+      }
+
+      // .post {
+      //   .wysiwyg {
+      //     color: white !important;
+      //   }
+      // }
     }
-    
-    .content {
-      height: auto;
-      width: 100%;
-  
-      @media (max-width: $breakpoint-mobile) {
-        display: block;
-      }
+  }
 
-      &-left {
-        grid-column-end: 5;
-        grid-column-start: 2;
-
-        @media (max-width: $breakpoint-tablet) {
-          grid-column-start: 1;
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-          margin-top: 1.2rem;
-        }
-      }
-  
-      &-right {
-        grid-column-end: 8;
-        grid-column-start: 5;
-
-        @media (max-width: $breakpoint-tablet) {
-          grid-column-start: 2;
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-          margin-top: 1.2rem;
-        }
-      }
+  .post {
+    .wysiwyg {
+      font-size: 1.2rem !important;
+      line-height: 1.2 !important;
     }
   }
 }
