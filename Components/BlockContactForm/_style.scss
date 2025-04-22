@@ -92,12 +92,13 @@ flynt-component[name='BlockContactForm'] {
     @apply flex-col;
     border: 0.5px solid var(--black) !important;
     margin: 0 !important;
-    padding: 50px !important;
 
     .wpforms-submit {
       background-color: var(--white) !important;
+      border: 0 !important;
       color: var(--black) !important;
-      padding: 50px !important;
+      height: 100% !important;
+      width: 100% !important;
 
       &:hover,
       &:focus {
