@@ -129,6 +129,16 @@ Options::addTranslatable('ListingFutureWorkshops', [
                 'wrapper' => [
                     'width' => 100
                 ],
+            ],
+            [
+                'label' => __('Coming Soon', 'flynt'),
+                'name' => 'comingSoon',
+                'type' => 'text',
+                'default_value' => __('Weitere Beiträge folgen in Kürze', 'flynt'),
+                'required' => 1,
+                'wrapper' => [
+                    'width' => 100
+                ],
             ]
         ],
     ]
