@@ -2,7 +2,7 @@
   {% for item in items %}
     {# regular menu item #}
     {% if not item.children %}
-      <li class="pl-md pr-xs item {{- item.current ? ' current-menu-item' }}">
+      <li class="pl-xs pr-xs item {{- item.current ? ' current-menu-item' }}">
         <a class="link text-[1.5rem]" href="{{ item.link }}" {{ item.target == '_blank' ? 'target="_blank" rel="noopener noreferrer"' }}>
           {{ item.title }}
         </a>
@@ -10,13 +10,13 @@
     {% endif %}
     {# menu with submenu item #}
     {% if item.children %}
-      <li class="pl-md pr-xs item open-submenu {{- item.current ? ' current-menu-item' }}" >
+      <li class="pl-xs pr-xs item open-submenu {{- item.current ? ' current-menu-item' }}" >
         <div class="link text-[1.5rem]">
           {{ item.title }}
         </div>
         <ul class="submenu">
           {% for subitem in item.children %}
-            <li class="pl-md pr-xs item {{- subitem.current ? ' current-menu-item' }}">
+            <li class="pl-xs pr-xs item {{- subitem.current ? ' current-menu-item' }}">
               <a class="link text-[1rem]" href="{{ subitem.link }}">{{ subitem.title }}</a>
             </li>
           {% endfor %}

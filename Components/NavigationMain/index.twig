@@ -4,7 +4,7 @@
       <a class="logo w-[25%]" href="{{ site.link }}">
         <img class="logo-image w-[300px]" src="{{ logo.src }}" alt="{{ logo.alt }}">
       </a>
-      <div class="flex flex-row justify-end gap-lg items-start md:w-[75%]">
+      <div class="flex flex-row justify-end gap-lg items-start md:w-[75%] md:h-[56px]">
       {% if menu %}
         {% include 'Partials/_menu.twig' with { 'items': menu.items } only %}
       {% endif %}
