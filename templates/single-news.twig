@@ -17,12 +17,12 @@
             {% endif %}
           </div>
         </div>
-        {% if post.imageFeat %}
+        {% if post.thumbnail.src %}
         <div class="featuredImage md:pl-sm w-full md:w-1/5 ">
           <img 
             class="lazyload object-cover"
-            src="{{ post.imageFeat.src }}"
-            data-srcset="{{function('wp_get_attachment_image_srcset', post.imageFeat.id)}}"
+            src="{{ post.thumbnail.src }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.src)}}"
             data-sizes="auto">
         </div>
       {% endif %}

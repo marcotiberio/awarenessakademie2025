@@ -53,18 +53,18 @@
       {# Glossar Term #}
       {% if showRandomPost == 1 %}
       {% for post in posts %}
-        <div class="content-right post lg:w-1/2 flex flex-col lg:flex-row p-xs lg:p-sm border-y-0.5 lg:border-y border-x-0.5">
+        <a class="content-right post lg:w-1/2 flex flex-col lg:flex-row p-xs lg:p-sm border-y-0.5 lg:border-y border-x-0.5 hover:bg-black hover:text-white" href="{{ labels.glossarButtonLink.url }}" {% if labels.glossarButtonLink.target %} target="{{ labels.glossarButtonLink.target }}" rel="noreferrer noopener"{% endif %}>
           <div class="lg:w-4/5 flex flex-col">
-            {{ labels.glossarBoxTitle }}
+            <div>{{ labels.glossarBoxTitle }}</div>
             <div class="font-h1">{{ post.title }}</div>
-            <div class="wysiwyg">{{ post.description|raw }}</div>
+            <div class="wysiwyg">{{ post.explanation|striptags }}</div>
           </div>
           <div class="w-full lg:w-1/5 mt-sm flex items-end justify-end">
-            {# <button class="button button--link">
-              {{ labels.glossarButton }}
-            </button> #}
+            <button class="button button--link">
+              {{ labels.glossarButtonLink.title }}
+            </button>
           </div>
-        </div>
+        </a>
       {% endfor %}
       {% endif %}
 

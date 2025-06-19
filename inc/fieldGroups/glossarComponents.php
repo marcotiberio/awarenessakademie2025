@@ -13,7 +13,7 @@ add_action('Flynt/afterRegisterComponents', function () {
         'fields' => [
             [
                 'label' => __('Description', 'flynt'),
-                'name' => 'description',
+                'name' => 'explanation',
                 'type' => 'wysiwyg',
                 'tabs' => 'visual, text',
                 'media_upload' => 0,

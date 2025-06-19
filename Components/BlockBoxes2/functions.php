@@ -6,7 +6,7 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'glossar';
+const POST_TYPE = 'glossar-term';
 
 add_filter('Flynt/addComponentData?name=BlockBoxes2', function ($data) {
     $postType = POST_TYPE;
@@ -149,16 +149,15 @@ Options::addTranslatable('BlockBoxes2', [
         'name' => 'labels',
         'type' => 'group',
         'sub_fields' => [
-            // [
-            //     'label' => __('Button Title', 'flynt'),
-            //     'name' => 'glossarButton',
-            //     'type' => 'text',
-            //     'default_value' => __('Laufend', 'flynt'),
-            //     'required' => 1,
-            //     'wrapper' => [
-            //         'width' => 100
-            //     ],
-            // ],
+            [
+                'label' => __('Glossar Button', 'flynt'),
+                'name' => 'glossarButtonLink',
+                'type' => 'link',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => 100
+                ],
+            ],
             [
                 'label' => __('Glossar Box Title', 'flynt'),
                 'name' => 'glossarBoxTitle',

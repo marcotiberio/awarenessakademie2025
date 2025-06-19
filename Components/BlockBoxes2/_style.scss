@@ -3,7 +3,7 @@ flynt-component[name='BlockBoxes2'] {
   .content-right {
     &:hover {
       button {
-        @apply text-white
+        @apply text-white;
       }
 
       // .post {

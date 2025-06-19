@@ -6,7 +6,7 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'glossar';
+const POST_TYPE = 'glossar-term';
 
 add_filter('Flynt/addComponentData?name=ListingGlossar', function ($data) {
     $postType = POST_TYPE;

@@ -11,18 +11,18 @@ add_action('Flynt/afterRegisterComponents', function () {
         'menu_order' => 1,
         'position' => 'acf_after_title',
         'fields' => [
-            [
-                'label' => __('Featured Image', 'flynt'),
-                'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
-                'name' => 'imageFeat',
-                'type' => 'image',
-                'preview_size' => 'medium',
-                'required' => 0,
-                'mime_types' => 'jpg,jpeg,png,svg',
-                'wrapper' =>  [
-                    'width' => 100,
-                ],
-            ],
+            // [
+            //     'label' => __('Featured Image', 'flynt'),
+            //     'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
+            //     'name' => 'imageFeat',
+            //     'type' => 'image',
+            //     'preview_size' => 'medium',
+            //     'required' => 0,
+            //     'mime_types' => 'jpg,jpeg,png,svg',
+            //     'wrapper' =>  [
+            //         'width' => 30,
+            //     ],
+            // ],
             // [
             //     'label' => __('Info', 'flynt'),
             //     'name' => 'infoTab',
@@ -59,32 +59,32 @@ add_action('Flynt/afterRegisterComponents', function () {
             ],
         ],
     ]);
-    ACFComposer::registerFieldGroup([
-        'name' => 'newsComponents',
-        'title' => __('News Components', 'flynt'),
-        'style' => 'seamless',
-        'fields' => [
-            [
-                'name' => 'newsComponents',
-                'label' => __('News Components', 'flynt'),
-                'type' => 'flexible_content',
-                'button_label' => __('Add Component', 'flynt'),
-                'layouts' => [
-                    Components\BlockBoxes2\getACFLayout(),
-                    Components\BlockBoxes3\getACFLayout(),
-                    Components\BlockContactForm\getACFLayout(),
-                    Components\BlockWysiwyg\getACFLayout(),
-                ],
-            ],
-        ],
-        'location' => [
-            [
-                [
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'news',
-                ],
-            ],
-        ],
-    ]);
+    // ACFComposer::registerFieldGroup([
+    //     'name' => 'newsComponents',
+    //     'title' => __('News Components', 'flynt'),
+    //     'style' => 'seamless',
+    //     'fields' => [
+    //         [
+    //             'name' => 'newsComponents',
+    //             'label' => __('News Components', 'flynt'),
+    //             'type' => 'flexible_content',
+    //             'button_label' => __('Add Component', 'flynt'),
+    //             'layouts' => [
+    //                 Components\BlockBoxes2\getACFLayout(),
+    //                 Components\BlockBoxes3\getACFLayout(),
+    //                 Components\BlockContactForm\getACFLayout(),
+    //                 Components\BlockWysiwyg\getACFLayout(),
+    //             ],
+    //         ],
+    //     ],
+    //     'location' => [
+    //         [
+    //             [
+    //                 'param' => 'post_type',
+    //                 'operator' => '==',
+    //                 'value' => 'news',
+    //             ],
+    //         ],
+    //     ],
+    // ]);
 });

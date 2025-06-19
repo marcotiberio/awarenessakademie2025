@@ -18,18 +18,26 @@
 
         <!-- Category Filters -->
         <div class="flex flex-row flex-wrap justify-start md:justify-end gap-x-xs gap-y-[5px] md:gap-sm">
+          <!-- 'Alle' Category (Reset) -->
           <div 
             class="cursor-pointer uppercase"
+            :class="selectedCategories.length === 0 ? 'text-primary underline underline-offset-[5px]' : ''"
             @click="selectedCategories = []">
             Alle
           </div>
+
+          <!-- Dynamic Categories -->
           {% for category in categories %}
             <div 
               class="cursor-pointer uppercase"
-              :class="selectedCategories.includes('{{ category.name|lower|replace({' ' : '-'}) }}') ? 'text-primary' : ''"
-              @click="selectedCategories.includes('{{ category.name|lower|replace({' ' : '-'}) }}') 
-                ? selectedCategories = selectedCategories.filter(c => c !== '{{ category.name|lower|replace({' ' : '-'}) }}') 
-                : selectedCategories.push('{{ category.name|lower|replace({' ' : '-'}) }}')">
+              :class="selectedCategories.includes('{{ category.name|lower|replace({' ' : ''}) }}') 
+                ? 'text-primary underline underline-offset-[5px]' 
+                : ''"
+              @click="
+                selectedCategories.includes('{{ category.name|lower|replace({' ' : ''}) }}') 
+                  ? selectedCategories = selectedCategories.filter(c => c !== '{{ category.name|lower|replace({' ' : ''}) }}') 
+                  : selectedCategories.push('{{ category.name|lower|replace({' ' : ''}) }}')
+              ">
               {{ category.name }}
             </div>
           {% endfor %}
@@ -37,15 +45,24 @@
       </div>
 
       <!-- Posts Grid -->
-      <div class="flex flex-col md:flex-row gap-x-sm gap-y-lg">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-x-sm gap-y-lg">
         {% for post in posts %}
+          {% set categorySlugs = post.terms('news-category')|map(c => c.slug)|join(' ') %}
+
           <a 
+            class="w-full [&_img]:hover:invert {{ categorySlugs }}"
+            href="{{ post.link }}" 
+            x-show="selectedCategories.length === 0 || selectedCategories.some(cat => [{{ post.terms('news-category')|map(t => "'" ~ t ~ "'" )|join(', ') }}].includes(cat))"
+            x-transition
+          >
+
+          {# <a 
             class="w-full md:w-1/3 [&_img]:hover:invert" 
             href="{{ post.link }}" 
             {% for term in post.terms('news-category') %}
-              aria-label="{{ post.title }} {{ term|lower|replace({' ' : '-'}) }}"
+              
               x-show="selectedCategories.length === 0 || selectedCategories.includes('{{ term|lower|replace({' ' : '-'}) }}')">
-            {% endfor %}
+            {% endfor %} #}
             
             
             <div class="post w-full h-full flex flex-col gap-xs justify-between items-center">
