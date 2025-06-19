@@ -38,17 +38,38 @@ VITE_DEV_SERVER_KEY=<path-to-ssl-certificate-key>/your-project.test_key.pem
 VITE_DEV_SERVER_CERT=<path-to-ssl-certificate-cert>/your-project.test_cert.pem
 ```
 
-5. Navigate to the theme folder and run the following command in your terminal:
+5. Navigate to the theme folder and run the following commands in your terminal:
 
 ```
 # wp-content/themes/flynt
-composer install
-npm i
-npm run build
+composer install   # Install PHP dependencies (required before build)
+npm i              # Install Node dependencies
+npm run build      # Build theme assets
 ```
 
 6. Open the WordPress back-end and activate the Flynt theme.
 7. Run `npm run start` and start developing.
+
+---
+
+## Deployment (Multisite via GitHub Actions)
+
+To deploy this theme to a WordPress multisite using GitHub Actions:
+
+1. Ensure your repository contains this theme folder with all source files, including composer.json and package.json.
+2. Use a GitHub Actions workflow that runs `composer install` and `npm run build` before deploying the theme to your multisite environment.
+3. Example workflow is provided in `.github/workflows/deploy.yml` (see below).
+
+**Build Steps:**
+- `composer install` (installs PHP dependencies)
+- `npm ci` (installs Node dependencies)
+- `npm run build` (builds theme assets)
+
+**Note:**
+- Make sure to commit the built assets (e.g., `dist/` folder) if your deployment process requires them.
+- If you use a deployment action, ensure it copies the built theme to the correct multisite location.
+
+---
 
 ### Dependencies
 
