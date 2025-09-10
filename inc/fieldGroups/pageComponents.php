@@ -77,6 +77,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'layouts' => [
                     // Components\AccordionDefault\getACFLayout(),
                     // Components\BannerImageText\getACFLayout(),
+                    Components\BlockAlphabet\getACFLayout(),
                     // Components\BlockAnchor\getACFLayout(),
                     // Components\BlockBanner\getACFLayout(),
                     Components\BlockBoxes2\getACFLayout(),
@@ -107,7 +108,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\ListingNews\getACFLayout(),
                     Components\ListingPastRoundtables\getACFLayout(),
                     Components\ListingFutureRoundtables\getACFLayout(),
-                    Components\ListingOngoingRoundtables\getACFLayout(),
+                    // Components\ListingOngoingRoundtables\getACFLayout(),
                     Components\ListingPastWorkshops\getACFLayout(),
                     Components\ListingFutureWorkshops\getACFLayout(),
                     Components\ListingOngoingWorkshops\getACFLayout(),

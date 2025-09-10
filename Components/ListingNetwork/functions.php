@@ -6,30 +6,46 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'netzwerk';
+const POST_TYPE = 'netzwerk-partner';
 
 add_filter('Flynt/addComponentData?name=ListingNetwork', function ($data) {
     $postType = POST_TYPE;
     $data['taxonomies'] = $data['taxonomies'] ?? [];
 
-    $data['posts'] = Timber::get_posts([
+    // Set blockTitle to the selected taxonomy term name if only one is selected
+    if (isset($data['taxonomies']) && is_array($data['taxonomies']) && count($data['taxonomies']) === 1) {
+        $term = get_term_by('slug', $data['taxonomies'][0], 'network-category');
+        if ($term && !is_wp_error($term)) {
+            $data['blockTitle'] = $term->name;
+        }
+    }
+    // else: keep blockTitle as set by ACF or fallback
+
+    $slugs = array_map(function($term) {
+        return is_object($term) ? $term->slug : $term;
+    }, $data['taxonomies']);
+    error_log('Network slugs: ' . print_r($slugs, true));
+
+    $args = [
         'post_status' => 'publish',
         'post_type' => $postType,
-        // 'category' => join(',', array_map(function ($taxonomy) {
-        //     return $taxonomy->term_id;
-        // }, $data['taxonomies'])),
-        'tax_query' => array(
-        array (
-                'taxonomy' => 'network-category',
-                'field' => 'slug',
-                'terms' => $data['taxonomies'],
-            )
-        ),
         'ignore_sticky_posts' => 1,
         'posts_per_page' => -1,
         'orderby' => 'menu_order',
         'order' => 'ASC',
-    ]);
+    ];
+
+    if (!empty($slugs)) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'network-category',
+                'field' => 'slug',
+                'terms' => $slugs,
+            ]
+        ];
+    }
+
+    $data['posts'] = Timber::get_posts($args);
 
     return $data;
 });
@@ -48,13 +64,12 @@ function getACFLayout()
                 'endpoint' => 0
             ],
             [
-                'label' => __('Title', 'flynt'),
-                'name' => 'blockTitle',
-                'type' => 'text',
-                'required' => 1,
-                'wrapper' => [
-                    'width' => 100
-                ],
+                'label' => __('The title of the block will be the selected category name.', 'flynt'),
+                'name' => 'message',
+                'type' => 'message',
+                'message' => '',
+                'new_lines' => 'wpautop',
+                'esc_html' => 1
             ],
             [
                 'label' => __('Categories', 'flynt'),

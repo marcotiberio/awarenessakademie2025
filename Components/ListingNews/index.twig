@@ -30,13 +30,13 @@
           {% for category in categories %}
             <div 
               class="cursor-pointer uppercase"
-              :class="selectedCategories.includes('{{ category.name|lower|replace({' ' : ''}) }}') 
+              :class="selectedCategories.includes('{{ category.slug }}') 
                 ? 'text-primary underline underline-offset-[5px]' 
                 : ''"
               @click="
-                selectedCategories.includes('{{ category.name|lower|replace({' ' : ''}) }}') 
-                  ? selectedCategories = selectedCategories.filter(c => c !== '{{ category.name|lower|replace({' ' : ''}) }}') 
-                  : selectedCategories.push('{{ category.name|lower|replace({' ' : ''}) }}')
+                selectedCategories.includes('{{ category.slug }}') 
+                  ? selectedCategories = selectedCategories.filter(c => c !== '{{ category.slug }}') 
+                  : selectedCategories.push('{{ category.slug }}')
               ">
               {{ category.name }}
             </div>
@@ -48,11 +48,12 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-x-sm gap-y-lg">
         {% for post in posts %}
           {% set categorySlugs = post.terms('news-category')|map(c => c.slug)|join(' ') %}
+          {% set categorySlugsArray = post.terms('news-category')|map(c => c.slug)|join("','") %}
 
           <a 
             class="w-full [&_img]:hover:invert {{ categorySlugs }}"
             href="{{ post.link }}" 
-            x-show="selectedCategories.length === 0 || selectedCategories.some(cat => [{{ post.terms('news-category')|map(t => "'" ~ t ~ "'" )|join(', ') }}].includes(cat))"
+            x-show="selectedCategories.length === 0 || selectedCategories.some(cat => ['{{ categorySlugsArray }}'].includes(cat))"
             x-transition
           >
 

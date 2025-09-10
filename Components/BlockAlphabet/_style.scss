@@ -1,0 +1,12 @@
+flynt-component[name='BlockAlphabet'] {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter {
+    &:hover {
+      @apply bg-black;
+      @apply text-white;
+    }
+  }
+}

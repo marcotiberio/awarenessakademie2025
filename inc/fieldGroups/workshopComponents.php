@@ -22,7 +22,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'label' => __('Intro', 'flynt'),
                 'name' => 'intro',
                 'type' => 'wysiwyg',
-                'tabs' => 'visual',
+                'tabs' => 'visual, text',
                 'media_upload' => 0,
                 'delay' => 1,
                 'wrapper' => [
@@ -40,7 +40,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'label' => __('Main Text', 'flynt'),
                 'name' => 'mainText',
                 'type' => 'wysiwyg',
-                'tabs' => 'visual',
+                'tabs' => 'visual, text',
                 'media_upload' => 0,
                 'delay' => 1,
                 'wrapper' => [

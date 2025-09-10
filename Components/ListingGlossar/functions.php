@@ -12,6 +12,15 @@ add_filter('Flynt/addComponentData?name=ListingGlossar', function ($data) {
     $postType = POST_TYPE;
     $data['taxonomies'] = $data['taxonomies'] ?? [];
 
+    // Set blockTitle to the selected taxonomy term name if only one is selected
+    if (isset($data['taxonomies']) && is_array($data['taxonomies']) && count($data['taxonomies']) === 1) {
+        $term = get_term_by('slug', $data['taxonomies'][0], 'glossar-letter');
+        if ($term && !is_wp_error($term)) {
+            $data['blockTitle'] = $term->name;
+        }
+    }
+    // else: keep blockTitle as set by ACF or fallback
+
     $data['posts'] = Timber::get_posts([
         'post_status' => 'publish',
         'post_type' => $postType,
@@ -31,6 +40,8 @@ add_filter('Flynt/addComponentData?name=ListingGlossar', function ($data) {
         'order' => 'ASC',
     ]);
 
+    $data['selectedCategory'] = get_query_var('category_name');
+
     return $data;
 });
 
@@ -48,13 +59,12 @@ function getACFLayout()
                 'endpoint' => 0
             ],
             [
-                'label' => __('Title', 'flynt'),
-                'name' => 'blockTitle',
-                'type' => 'text',
-                'required' => 1,
-                'wrapper' => [
-                    'width' => 100
-                ],
+                'label' => __('The title of the block will be the selected category name.', 'flynt'),
+                'name' => 'message',
+                'type' => 'message',
+                'message' => '',
+                'new_lines' => 'wpautop',
+                'esc_html' => 1
             ],
             [
                 'label' => __('Categories', 'flynt'),

@@ -73,13 +73,13 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'return_format' => 'Ymd',
                 'first_day' => 1,
             ],
-            [
-                'label' => __('Ongoing?', 'flynt'),
-                'name' => 'ongoing',
-                'type' => 'true_false',
-                'default_value' => 0,
-                'ui' => 1
-            ],
+            // [
+            //     'label' => __('Ongoing?', 'flynt'),
+            //     'name' => 'ongoing',
+            //     'type' => 'true_false',
+            //     'default_value' => 0,
+            //     'ui' => 1
+            // ],
         ],
         'location' => [
             [
