@@ -29,10 +29,6 @@ body {
   font-family: 'FoundersGrotesk', Helvetica, Arial, sans-serif;
 }
 
-#{$heading-selectors} {
-  line-height: calc(1em + 0.5rem);
-}
-
 ::selection {
   background: #f0f;
   color: #fff;
