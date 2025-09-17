@@ -10,9 +10,9 @@
     </header>
     <section class="post-main boxed flex flex-col">
       <div class="post-main flex flex-col-reverse sm:flex-row gap-md">
-        <div class="w-full sm:w-2/3">
+        <div class="w-full sm:w-2/3 wysiwyg">
           {% if post.mainText %}
-            {{ post.mainText }}
+            {{ post.mainText|e('wp_kses_post')wysiwyg }}
           {% endif %}
         </div>
       </div>

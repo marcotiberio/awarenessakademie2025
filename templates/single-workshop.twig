@@ -15,12 +15,12 @@
     </header>
     <section class="post-main flex flex-col md:flex-row md:gap-xs justify-start">
       <div class="w-full md:w-1/6"></div>
-      <div class="w-full md:w-4/6">
+      <div class="w-full md:w-4/6 wysiwyg">
         {% if post.intro %}
           {{ post.intro }}
         {% endif %}
         {% if post.mainText %}
-          {{ post.mainText }}
+          {{ post.mainText|e('wp_kses_post') }}
         {% endif %}
       </div>
     </section>
