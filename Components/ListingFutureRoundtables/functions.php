@@ -20,7 +20,7 @@ add_filter('Flynt/addComponentData?name=ListingFutureRoundtables', function ($da
         'posts_per_page' => -1,
         'meta_key' => 'end_date',
         'orderby' => 'meta_value',
-        'order' => 'DESC',
+        'order' => 'ASC',
         'meta_query' => array(
             array(
                 'key' => 'end_date',
