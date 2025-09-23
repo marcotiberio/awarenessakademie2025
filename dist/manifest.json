@@ -41,7 +41,7 @@
   },
   "Components/BlockCta/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/BlockCta/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -162,7 +162,7 @@
   },
   "Components/NavigationFooter/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/NavigationFooter/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -170,11 +170,11 @@
   },
   "Components/NavigationMain/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/NavigationMainLogo/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/ScrolltriggerComparison/script.js": {
     "file": "assets/script-91b86754.js",
@@ -344,7 +344,7 @@
     "src": "assets/main.js"
   },
   "assets/main.scss": {
-    "file": "assets/main-161c29d5.css",
+    "file": "assets/main-2fdc5acb.css",
     "isEntry": true,
     "src": "assets/main.scss"
   },
@@ -354,7 +354,7 @@
     "src": "assets/print.scss"
   },
   "assets/tinyMce.scss": {
-    "file": "assets/tinyMce-7276b814.css",
+    "file": "assets/tinyMce-4d6436f9.css",
     "isEntry": true,
     "src": "assets/tinyMce.scss"
   },
