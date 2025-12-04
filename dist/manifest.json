@@ -29,7 +29,7 @@
   },
   "Components/BlockCta/Assets/facebook.svg": {
     "file": "assets/facebook-8975c208.svg",
-    "src": "Components/NavigationFooter/Assets/linkedin.svg"
+    "src": "Components/BlockCta/Assets/facebook.svg"
   },
   "Components/BlockCta/Assets/instagram.svg": {
     "file": "assets/instagram-5bab2c82.svg",
@@ -37,11 +37,11 @@
   },
   "Components/BlockCta/Assets/linkedin.svg": {
     "file": "assets/facebook-8975c208.svg",
-    "src": "Components/NavigationFooter/Assets/linkedin.svg"
+    "src": "Components/BlockCta/Assets/facebook.svg"
   },
   "Components/BlockCta/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/BlockCta/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -146,7 +146,7 @@
   },
   "Components/NavigationFooter/Assets/facebook.svg": {
     "file": "assets/facebook-8975c208.svg",
-    "src": "Components/NavigationFooter/Assets/linkedin.svg"
+    "src": "Components/BlockCta/Assets/facebook.svg"
   },
   "Components/NavigationFooter/Assets/instagram.svg": {
     "file": "assets/instagram-5bab2c82.svg",
@@ -158,11 +158,11 @@
   },
   "Components/NavigationFooter/Assets/linkedin.svg": {
     "file": "assets/facebook-8975c208.svg",
-    "src": "Components/NavigationFooter/Assets/linkedin.svg"
+    "src": "Components/BlockCta/Assets/facebook.svg"
   },
   "Components/NavigationFooter/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/NavigationFooter/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -170,11 +170,11 @@
   },
   "Components/NavigationMain/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/NavigationMainLogo/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMainLogo/Assets/logo.svg"
+    "src": "Components/NavigationMain/Assets/logo.svg"
   },
   "Components/ScrolltriggerComparison/script.js": {
     "file": "assets/script-91b86754.js",
