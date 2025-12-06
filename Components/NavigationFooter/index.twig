@@ -1,12 +1,23 @@
 <flynt-component load:on="visible" name="NavigationFooter" class="w-full bg-black text-white">
-  <div class="w-full h-full py-xxs px-sm flex flex-col md:flex-row justify-between gap-lg">
-    {% if logoFooterLeft %}
-      <img class="lazyload w-[100px] h-auto invert"
-        src="{{ logoFooterLeft.src }}"
-        data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterLeft.id)}}"
-        data-sizes="auto"
-        alt="{{ logoFooterLeft.alt|e }}">
-    {% endif %}
+  <div class="w-full h-full py-sm lg:py-xxs px-sm flex flex-col lg:flex-row justify-between gap-sm lg:gap-lg">
+    <div class="w-full flex flex-row justify-between items-center gap-sm">
+      {% if logoFooterLeft %}
+        <img class="lazyload w-[100px] h-auto invert"
+          src="{{ logoFooterLeft.src }}"
+          data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterLeft.id)}}"
+          data-sizes="auto"
+          alt="{{ logoFooterLeft.alt|e }}">
+      {% endif %}
+      {% if logoFooterRight %}
+        <div class="block lg:hidden h-[45px] flex justify-end items-center">
+          <img class="lazyload w-full h-[45px] object-contain"
+            src="{{ logoFooterRight.src }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterRight.id)}}"
+            data-sizes="auto"
+            alt="{{ logoFooterRight.alt|e }}">
+        </div>
+      {% endif %}
+      </div>
     {% if menu %}
       <nav 
         class="navigation w-full flex justify-between items-center" 
@@ -15,7 +26,7 @@
       </nav>
     {% endif %}
     {% if logoFooterRight %}
-      <img class="lazyload w-full max-w-[150px] md:max-w-[300px] h-auto"
+      <img class="hidden lg:block lazyload w-full max-w-[150px] lg:max-w-[300px] h-auto"
         src="{{ logoFooterRight.src }}"
         data-srcset="{{function('wp_get_attachment_image_srcset', logoFooterRight.id)}}"
         data-sizes="auto"
