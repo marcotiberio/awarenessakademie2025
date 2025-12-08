@@ -16,6 +16,10 @@ flynt-component[name='BlockContactForm'] {
     @apply md:grid-cols-[3fr_1fr];
   }
 
+  .wpforms-head-container {
+    display: none !important;
+  }
+
   .wpforms-field-container {
     @apply grid;
     @apply grid-cols-1;
