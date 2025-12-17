@@ -24,6 +24,8 @@ add_filter('Flynt/addComponentData?name=ListingEvents', function ($data) {
         'meta_key' => 'eventDate',
         'orderby' => 'meta_value',
         'order' => 'ASC',
+        'update_post_meta_cache' => true, // Optimize meta queries
+        'update_post_term_cache' => true, // Optimize term queries to prevent N+1
     ]);
 
     $data['postTypeArchiveLink'] = get_post_type_archive_link($postType);

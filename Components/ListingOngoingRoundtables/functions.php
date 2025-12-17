@@ -21,6 +21,8 @@ add_filter('Flynt/addComponentData?name=ListingOngoingRoundtables', function ($d
         'meta_key' => 'end_date',
         'orderby' => 'meta_value',
         'order' => 'DESC',
+        'update_post_meta_cache' => true, // Optimize meta queries
+        'update_post_term_cache' => true, // Optimize term queries to prevent N+1
         // 'meta_query' => array(
         //     array(
         //         'key' => 'end_date',

@@ -17,7 +17,8 @@
               {% if post.thumbnail %}
                 <img 
                   class="lazyload transition duration-200 ease-in-out h-[250px] md:h-[350px] object-cover" 
-                  src="{{ post.thumbnail.src }}"
+                  src="{{ post.thumbnail.src | resize(32) }}"
+                  data-src="{{ post.thumbnail.src }}"
                   data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
                   data-sizes="auto"
                   alt="{{ post.title }}">

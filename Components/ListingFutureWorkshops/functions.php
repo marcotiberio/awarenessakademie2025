@@ -28,6 +28,8 @@ add_filter('Flynt/addComponentData?name=ListingFutureWorkshops', function ($data
                 'value' => $today,
             ),
         ),
+        'update_post_meta_cache' => true, // Optimize meta queries
+        'update_post_term_cache' => true, // Optimize term queries to prevent N+1
     ]);
 
     $data['postTypeArchiveLink'] = get_post_type_archive_link($postType);

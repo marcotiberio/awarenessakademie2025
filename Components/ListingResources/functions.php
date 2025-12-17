@@ -31,6 +31,8 @@ add_filter('Flynt/addComponentData?name=ListingResources', function ($data) {
         'posts_per_page'        => -1,
         'orderby'               => 'menu_order',
         'order'                 => 'ASC',
+        'update_post_meta_cache' => true, // Optimize meta queries
+        'update_post_term_cache' => true, // Optimize term queries to prevent N+1
     ];
 
     if (!empty($categoryIds)) {

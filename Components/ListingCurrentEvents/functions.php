@@ -21,6 +21,8 @@ add_filter('Flynt/addComponentData?name=ListingCurrentEvents', function ($data) 
         'orderby' => 'meta_value',
         'meta_key' => 'eventDate',
         'order' => 'DESC',
+        'update_post_meta_cache' => true, // Optimize meta queries
+        'update_post_term_cache' => true, // Optimize term queries to prevent N+1
         'meta_query' => array(
             'relation'    => 'AND',
             array(
