@@ -9,7 +9,7 @@
     "src": "Components/AccordionSystems/script.js"
   },
   "Components/BlockBanner/script.js": {
-    "file": "assets/script-9c1467d8.js",
+    "file": "assets/script-80eb5179.js",
     "imports": [
       "_helpers-0bb72b7a.js"
     ],
@@ -41,7 +41,7 @@
   },
   "Components/BlockCta/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMain/Assets/logo.svg"
+    "src": "Components/NavigationMainLogo/Assets/logo.svg"
   },
   "Components/BlockCta/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -77,7 +77,7 @@
     "src": "Components/BlockTicker/script.js"
   },
   "Components/BlockVideoOembed/script.js": {
-    "file": "assets/script-80eb5179.js",
+    "file": "assets/script-ecbf5980.js",
     "imports": [
       "_helpers-0bb72b7a.js"
     ],
@@ -104,7 +104,7 @@
     "src": "Components/HeroMultimedia/script.js"
   },
   "Components/HeroMultimediaComplex/script.js": {
-    "file": "assets/script-ecbf5980.js",
+    "file": "assets/script-9c1467d8.js",
     "imports": [
       "_helpers-0bb72b7a.js"
     ],
@@ -162,7 +162,7 @@
   },
   "Components/NavigationFooter/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMain/Assets/logo.svg"
+    "src": "Components/NavigationMainLogo/Assets/logo.svg"
   },
   "Components/NavigationFooter/Assets/twitter.svg": {
     "file": "assets/twitter-bc2ba69f.svg",
@@ -170,11 +170,11 @@
   },
   "Components/NavigationMain/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMain/Assets/logo.svg"
+    "src": "Components/NavigationMainLogo/Assets/logo.svg"
   },
   "Components/NavigationMainLogo/Assets/logo.svg": {
     "file": "assets/logo-eeb7436e.svg",
-    "src": "Components/NavigationMain/Assets/logo.svg"
+    "src": "Components/NavigationMainLogo/Assets/logo.svg"
   },
   "Components/ScrolltriggerComparison/script.js": {
     "file": "assets/script-91b86754.js",

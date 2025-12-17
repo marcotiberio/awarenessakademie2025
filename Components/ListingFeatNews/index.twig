@@ -22,7 +22,7 @@
                   data-sizes="auto"
                   alt="{{ post.title }}">
               {% endif %}
-              <div class="content w-full h-full flex flex-col md:flex-row justify-start">
+              <div class="content w-full h-full flex flex-col justify-start">
                 {% if post.date %}
                   <div class="w-full md:w-1/4">{{ post.date|date("d.m.y")|escape('wp_kses_post') }}</div>
                 {% endif %}
